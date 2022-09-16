@@ -1,0 +1,91 @@
+:root {
+  --marquee-width: 100%;
+  --marquee-height: 20vh;
+  --marquee-elements-displayed: 5;
+  --marquee-element-width: calc(
+    var(--marquee-width) / var(--marquee-elements-displayed)
+  );
+  --marquee-animation-duration: 80s;
+}
+
+.logoCarousel {
+  width: var(--marquee-width);
+  height: var(--marquee-height);
+  color: #eee;
+  overflow: hidden;
+  position: relative;
+  margin: 30px 0;
+}
+.logoCarousel:before,
+.logoCarousel:after {
+  position: absolute;
+  top: 0;
+  width: 10rem;
+  height: 100%;
+  content: "";
+  z-index: 1;
+}
+.logoCarousel:before {
+  left: 0;
+  background: linear-gradient(to right, #fff 0%, transparent 100%);
+}
+.logoCarousel:after {
+  right: 0;
+  background: linear-gradient(to left, #fff 0%, transparent 100%);
+}
+.logoCarouselContent {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  animation: scrolling var(--marquee-animation-duration) linear infinite;
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      calc(-1 * var(--marquee-element-width) * var(--marquee-elements))
+    );
+  }
+}
+.logoCarouselContent li {
+  padding: 0 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  flex-shrink: 0;
+  width: var(--marquee-element-width);
+  max-height: 100%;
+  font-size: calc(var(--marquee-height) * 3 / 4); /* 5rem; */
+  white-space: nowrap;
+}
+
+.logoCarouselContent li img {
+  width: 100%;
+  filter: grayscale(1);
+  transition: 0.2s;
+  /* height: 100%; */
+  /* border: 2px solid #eee; */
+}
+
+.logoCarouselContent li img:hover {
+  filter: none;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+  :root {
+    --marquee-width: 100vw;
+    --marquee-height: 16vh;
+    --marquee-elements-displayed: 3;
+  }
+  .logoCarousel:before,
+  .logoCarousel:after {
+    width: 5rem;
+  }
+}

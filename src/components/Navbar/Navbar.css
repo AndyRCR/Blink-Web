@@ -1,0 +1,32 @@
+.navbar{
+    background-color: var(--blink-main);
+    height: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px 0 160px;
+    color: #fff;
+}
+
+.navbar .menu{
+    display: flex;
+}
+
+.navbar .menuItem{
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    margin: 0 26px;
+}
+
+.navbar a{
+    text-decoration: none;
+}
+
+.navbar .activeNavLink{
+    color: var(--button-main);
+}
+
+.navbar .navLink{
+    color: #fff;
+}

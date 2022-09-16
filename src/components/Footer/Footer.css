@@ -1,0 +1,22 @@
+.footer{
+    background-color: var(--blink-main);
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    color: #fff;
+}
+
+.footerItem{
+    display: flex;
+    align-items: center;
+    
+}
+
+.footerItem > p{
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    margin-left: 14px;
+}

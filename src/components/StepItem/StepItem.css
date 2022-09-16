@@ -1,0 +1,54 @@
+.stepItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stepItem .title,
+.stepItem .description{
+    text-align: center;
+    line-height: 114.5%;
+}
+
+.stepItem .title{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.stepItem .description{
+    font-weight: 500;
+    font-size: 18px;
+    margin-top: 22px;
+}
+
+.stepItem img{
+    height: 200px;
+}
+
+.stepItem .image{
+    position: relative;
+}
+
+.stepItem .stepCircle{
+    position: absolute;
+    bottom: 20px;
+    width: 70px;
+    height: 70px;
+    background-color: var(--button-main);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 66.3366px;
+    line-height: 65px;
+    color: #5A00FE;
+}
+
+.stepItem .left{
+    left: 0px;
+}
+
+.stepItem .right{
+    right: 20px;
+}

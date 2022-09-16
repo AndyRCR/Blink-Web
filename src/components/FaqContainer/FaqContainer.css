@@ -1,0 +1,26 @@
+.faqContainer img{
+    width: 500px;
+}
+
+.faqSection{
+    overflow: hidden;
+    position: relative;
+    height: 1000px;
+}
+
+.faqSection .bg1,
+.faqSection .bg2,
+.faqSection .bg3{
+    position: absolute;
+    margin: 0 auto;
+    top: 0;
+}
+
+.faqSection .bg1{
+    z-index: 10;
+}
+
+.faqSection .bg2{
+    top: 52px;
+    z-index: 20;
+}

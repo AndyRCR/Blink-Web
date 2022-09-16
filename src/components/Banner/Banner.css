@@ -1,0 +1,31 @@
+.banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 90px 60px 120px;
+}
+
+.sloganContainer h2{
+    font-weight: 800;
+    font-size: 93px;
+    line-height: 98%;
+    color: var(--blink-main);
+}
+
+.sloganContainer p{
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 114.5%;
+    margin: 50px 0;
+    color: #484848;
+}
+
+.banner img{
+    height: 450px;
+}
+
+.banner button:hover{
+    border: 2px solid var(--blink-main);
+    background-color: var(--blink-main);
+    color: var(--button-main);
+}
