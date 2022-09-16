@@ -29,4 +29,50 @@
 
     position: relative;
     z-index: 44;
+
+    color: #4E29C8;
+}
+
+.faqSection p{
+    position: relative;
+    z-index: 44;
+
+    color: #484848;
+}
+
+.faqSection .faqQuesContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    height: 95%;
+    padding-top: 20%;
+}
+
+.faqSection .faqContainerOne {
+
+    width: 95%;
+    height: auto;
+    margin-left: 3%;
+}
+
+.faqSection .faqContainerTwo {
+
+    width: 95%;
+    height: auto;
+    margin-left: 3%;
+}
+
+.faqSection .faqContainerTree {
+
+    width: 95%;
+    height: auto;
+    margin-left: 3%;
+}
+
+.faqSection .faqContainerFour {
+
+    width: 95%;
+    height: auto;
+    margin-left: 3%;
 }
