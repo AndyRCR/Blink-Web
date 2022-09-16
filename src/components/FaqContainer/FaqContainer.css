@@ -5,7 +5,6 @@
 .faqSection{
     overflow: hidden;
     position: relative;
-    height: 1000px;
 }
 
 .faqSection .bg1,
@@ -26,53 +25,38 @@
 }
 
 .faqSection h1{
-
-    position: relative;
-    z-index: 44;
-
-    color: #4E29C8;
+    color: var(--blink-main);
+    font-weight: 500;
+    font-size: 33px;
+    line-height: 114.5%;
+    margin-bottom: 24px;
 }
 
 .faqSection p{
-    position: relative;
-    z-index: 44;
-
     color: #484848;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 32px;
 }
 
 .faqSection .faqQuesContainer{
+    position: relative ;
+    z-index: 50;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-content: space-between;
-    height: 95%;
-    padding-top: 20%;
+    padding: 20% 120px 70px;
 }
 
-.faqSection .faqContainerOne {
-
-    width: 95%;
-    height: auto;
-    margin-left: 3%;
+.faqQuesContainer > div{
+    margin: 35px 0;
 }
 
-.faqSection .faqContainerTwo {
-
-    width: 95%;
-    height: auto;
-    margin-left: 3%;
-}
-
-.faqSection .faqContainerTree {
-
-    width: 95%;
-    height: auto;
-    margin-left: 3%;
-}
-
+.faqSection .faqContainerOne,
+.faqSection .faqContainerTwo,
+.faqSection .faqContainerTree,
 .faqSection .faqContainerFour {
-
     width: 95%;
     height: auto;
-    margin-left: 3%;
 }
