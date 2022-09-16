@@ -24,3 +24,9 @@
     top: 52px;
     z-index: 20;
 }
+
+.faqSection h1{
+
+    position: relative;
+    z-index: 44;
+}

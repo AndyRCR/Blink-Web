@@ -22,7 +22,8 @@ const FaqContainer = () => {
             <svg className='bg2' width="1922" height="470" viewBox="0 0 1922 470" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1921.33 0C1807.43 79.9369 1416.17 204.462 997.991 193.564C579.814 182.666 216.033 24.0182 0.000144958 65.3989V469.116H1921.33V0Z" fill="white"/>
             </svg>
-        </div>
+        <h1>Prueba de textos</h1>
+        </div> 
     </div>
   )
 }
