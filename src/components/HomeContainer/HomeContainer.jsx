@@ -7,7 +7,7 @@ import './HomeContainer.css'
 const HomeContainer = () => {
   return (
     <div className='homeContainer'>
-        <Banner section='home' image='https://blinkimages.s3.amazonaws.com/home/blink_medic.png'/>
+        <Banner section='home' image='https://blinkimages.s3.amazonaws.com/home/blink_medic.webp'/>
         <Steps/>
         <LogoCarousel/>
     </div>

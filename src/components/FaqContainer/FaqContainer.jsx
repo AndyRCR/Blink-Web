@@ -5,7 +5,7 @@ import './FaqContainer.css'
 const FaqContainer = () => {
   return (
     <div className='faqContainer'>
-        <Banner section='faq' image='https://blinkimages.s3.amazonaws.com/faq/faq.png'/>
+        <Banner section='faq' image='https://blinkimages.s3.amazonaws.com/faq/faq.webp'/>
         <div className='faqSection'>
             <svg className='bg1' width="1922" height="493" viewBox="0 0 1922 493" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1921.33 25.5391C1800.78 100.282 1411.18 205.428 992.038 175.994C572.892 146.56 220.122 -27.8852 0.000203411 3.83934V493H1921.33V25.5391Z" fill="url(#paint0_linear_205_249)"/>

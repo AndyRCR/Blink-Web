@@ -60,7 +60,7 @@
 }
 
 .steps button:hover{
-    border: 2px solid #fff;
+    border: 2px solid var(--button-main);
     background-color: transparent;
-    color: #fff;
+    color: var(--button-main);
 }
