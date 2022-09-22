@@ -56,7 +56,7 @@ const GlobalStateContext = ({ children }) => {
 
             formData.append('file', selectedFile)
 
-            axios.post("http://localhost:3306/uploadfile", formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+            axios.post("https://blink-files.onrender.com/uploadfile", formData, { headers: { 'Content-Type': 'multipart/form-data' } })
                 .then(async (res) => {
                   emailjs.send('service_94nx1uu', 'template_r8rpyj8', {
                     ...postulant,
