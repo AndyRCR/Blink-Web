@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Logo from '../Logo/Logo'
 import './Navbar.css'
 
 const Navbar = () => {
+
+  const [scroll, setScroll] = useState(0)
+
+  useEffect(() => {
+      const handleScroll = () => setScroll(window.scrollY)
+      window.addEventListener('scroll', handleScroll)
+      return () =>{
+          window.removeEventListener('scroll', handleScroll)
+      }
+  }, [scroll])
+
   return (
-    <div className='navbar'>
+    <div className={scroll < 150 ? 'navbar' : 'navbar transparent'}>
         <Logo/>
         <div className="menu">
             <div className="menuItem">

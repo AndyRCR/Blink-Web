@@ -9,6 +9,11 @@
     color: #fff;
     position: fixed;
     z-index: 60;
+    transition: .5s;
+}
+
+.navbar.transparent{
+    background-color: rgba(78,41,200,0.9);
 }
 
 .navbar .menu{
