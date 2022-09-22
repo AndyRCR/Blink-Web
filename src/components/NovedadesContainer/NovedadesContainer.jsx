@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import ArticlesList from '../ArticlesList/ArticlesList'
 import Banner from '../Banner/Banner'
 import './NovedadesContainer.css'
@@ -32,7 +33,9 @@ const NovedadesContainer = () => {
                     <div className='novedadesInfo'>
                         <h3>Qué alimentos consumir para combatir el cansancio</h3>
                         <p>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. Estos textos hacen parecerlo un español que se puede leer.</p>
-                        <button className='secondaryButton'>Leer más</button>
+                        <button className='secondaryButton'>
+                            <Link to={'/articuloTest'}>Leer más</Link>
+                        </button>
                     </div>
                 </div>
 

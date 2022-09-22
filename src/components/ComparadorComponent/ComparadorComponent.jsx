@@ -4,7 +4,7 @@ import './ComparadorComponent.css'
 const Comparador = () => {
   return (
     <div className='comparadorComponent'>
-        Aqui va el comparador
+        Comparador en proceso 😅
     </div>
   )
 }

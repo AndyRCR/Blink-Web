@@ -1,0 +1,25 @@
+.articleTestContainer .articleContent{
+    padding: 120px 120px 50px 120px;
+}
+
+.articleTestContainer .articleContent{
+    color: #484848;
+}
+
+.articleTestContainer .articleContent .articleImage{
+    text-align: center;
+    min-height: 400px;
+}
+
+.articleTestContainer .articleContent h1{
+    font-weight: 800;
+    font-size: 58px;
+    line-height: 98%;
+    color: var(--blink-main);
+    text-align: center;
+    margin: 20px 0 40px 0;
+}
+
+.articleTestContainer .articleContent .articleText{
+    margin: 70px 0;
+}

@@ -30,6 +30,10 @@
     color: #484848;
 }
 
+.banner .imageContainer{
+    min-height: 500px;
+}
+
 .banner img{
     height: auto;
     width: auto;

@@ -5,7 +5,25 @@ import { GlobalContext } from '../../context/GlobalStateContext'
 
 const WorkWithUs = () => {
     
-    const {uploadFile} = useContext(GlobalContext)
+    const {uploadFile, postulant, setPostulant, selectedFile} = useContext(GlobalContext)
+
+    const verifyFields = () =>{
+        if(
+            selectedFile !== null &&
+            postulant.name !== '' &&
+            postulant.phone !== '' &&
+            postulant.email !== ''
+        ) uploadFile()
+        else alert('Todos los campos son obligatorios')
+    }
+
+    const handleInputChange = (e) =>{
+        const { name, value } = e.target
+        setPostulant({
+            ...postulant,
+            [name]: value
+        })
+    }
 
     return (
         <div className='workWithUs'>
@@ -16,19 +34,31 @@ const WorkWithUs = () => {
             <div className='form'>
                 <div className="formItem">
                     <p>Nombre completo</p>
-                    <input type="text" />
+                    <input
+                    value={postulant.name}
+                    name='name'
+                    onChange={handleInputChange}
+                    type="text" />
                 </div>
                 <div className="formItem">
                     <p>Celular</p>
-                    <input type="tel" />
+                    <input
+                    value={postulant.phone}
+                    name='phone'
+                    onChange={handleInputChange}
+                    type="tel" />
                 </div>
                 <div className="formItem">
                     <p>Correo electrónico</p>
-                    <input type="email" />
+                    <input
+                    value={postulant.email}
+                    name='email'
+                    onChange={handleInputChange}
+                    type="email" />
                 </div>
                 <FileUploader/>
                 <div className='formItem'>
-                    <button className='sendButton' onClick={uploadFile}>Subir</button>
+                    <button className='sendButton' onClick={verifyFields}>Subir</button>
                 </div>
             </div>
 

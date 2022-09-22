@@ -12,6 +12,22 @@
     --button-main: #30FF9C;
 }
 
+::-webkit-scrollbar-track{
+	border-radius: 10px;
+	background-color: var(--blink-main);
+}
+
+::-webkit-scrollbar{
+	width: 12px;
+	background-color: var(--blink-main);
+}
+
+::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px #fff;
+	background-color: var(--button-main);
+}
+
 .primaryButton{
     border: 2px solid var(--button-main);
     cursor: pointer;
@@ -44,6 +60,15 @@
     align-items: center;
     justify-content: space-around;
     transition: .3s;
+}
+
+.primaryButton a,
+.secondaryButton a{
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    padding: 8px 16px;
 }
 
 .bg1,

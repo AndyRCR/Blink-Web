@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp, faFilePdf } from '@fortawesome/free-solid-svg-icons'
 import $ from 'jquery'
@@ -7,8 +7,7 @@ import './FileUploader.css'
 
 const FileUploader = () => {
 
-    const { setSelectedFile } = useContext(GlobalContext)
-    const [fileUploaded, setFileUploaded] = useState(false)
+    const {selectedFile, setSelectedFile, fileUploaded, setFileUploaded } = useContext(GlobalContext)
 
     const handleFileChange = (e) => {
         setSelectedFile(e.target.files[0])
@@ -35,7 +34,7 @@ const FileUploader = () => {
     }
 
     useEffect(() => {
-    }, [fileUploaded])
+    }, [fileUploaded, selectedFile])
 
     return (
         <div>
@@ -47,11 +46,8 @@ const FileUploader = () => {
                     <FontAwesomeIcon className='fileIcon' icon={faFilePdf} />
                 )}
                 <span className="title">
-                    Carga tu CV (.pdf)
+                    Cargá tu CV (.pdf)
                 </span>
-                {/* {fileUploaded && (
-                <FontAwesomeIcon className='fileIcon' icon={faXmark} />
-            )} */}
                 <input
                     className='fileUpload'
                     id='fileInput'
