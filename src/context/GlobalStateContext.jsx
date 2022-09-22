@@ -12,6 +12,7 @@ const GlobalStateContext = ({ children }) => {
 
     const [selectedFile, setSelectedFile] = useState(null)
     const [fileUploaded, setFileUploaded] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [articles, setArticles] = useState([
       {title: 'Articulo novedoso 1', starred: false},
       {title: 'Articulo novedoso 2', starred: false},
@@ -53,12 +54,14 @@ const GlobalStateContext = ({ children }) => {
 
     const uploadFile = async () => {
         try {
+            setIsLoading(true)
+
             let formData = new FormData()
 
             formData.append('file', selectedFile)
 
             axios.post("https://blink-files.onrender.com/uploadfile", formData, { headers: { 'Content-Type': 'multipart/form-data' } })
-                .then(async (res) => {
+                .then( res => {
                   emailjs.send('service_94nx1uu', 'template_r8rpyj8', {
                     ...postulant,
                     path: res.data.Location
@@ -71,6 +74,14 @@ const GlobalStateContext = ({ children }) => {
                     )
                     clearPostulantForm()
                   })
+                  .catch(err => {
+                    Swal.fire(
+                      'Error 😕',
+                      'Ocurrió un error en el servidor, intente nuevamente mas tarde',
+                      'error'
+                    )
+                  })
+                  .finally(() => setIsLoading(false))
                 })
                 .catch(err => {
                   Swal.fire(
@@ -96,7 +107,8 @@ const GlobalStateContext = ({ children }) => {
         postulant,
         setPostulant,
         fileUploaded,
-        setFileUploaded
+        setFileUploaded,
+        isLoading
       }}
     >
       {children}

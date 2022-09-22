@@ -67,6 +67,7 @@ const Banner = (props) => {
         data-aos="fade-zoom-in"
         data-aos-easing="ease-in-back"
         data-aos-duration="500"
+        data-aos-offset="-5000"
         src={props.image}
         alt={`blink ${props.section}`} />
       </div>

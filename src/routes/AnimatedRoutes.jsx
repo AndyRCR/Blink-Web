@@ -8,6 +8,7 @@ import Novedades from '../views/Novedades'
 import PreguntasFrecuentes from '../views/PreguntasFrecuentes'
 import Layout from '../components/Layout'
 import { AnimatePresence } from 'framer-motion'
+import NotFound from '../views/NotFound'
 
 const AnimatedRoutes = () => {
 
@@ -17,12 +18,13 @@ const AnimatedRoutes = () => {
     <AnimatePresence>
         <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path='/comparador' element={<Comparador />} />
-            <Route path='/nosotros' element={<Nosotros />} />
-            <Route path='/novedades' element={<Novedades />} />
-            <Route path='/faq' element={<PreguntasFrecuentes />} />
-            <Route path='/articuloTest' element={<ArticuloTest />} />
+              <Route index element={<Home />} />
+              <Route exact path='/comparador' element={<Comparador />} />
+              <Route exact path='/nosotros' element={<Nosotros />} />
+              <Route exact path='/novedades' element={<Novedades />} />
+              <Route exact path='/faq' element={<PreguntasFrecuentes />} />
+              <Route exact path='/articuloTest' element={<ArticuloTest />} />
+              <Route path='*' element={<NotFound/>} />
             </Route>
         </Routes>
     </AnimatePresence>

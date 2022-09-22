@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import './LogoCarousel.css'
 
 const LogoCarousel = () => {
+
+    const location = useLocation()
 
     const images = [
         {image: "https://blinkimages.s3.amazonaws.com/os/logo-ps.png", os: "prevencion salud"},
@@ -14,14 +17,16 @@ const LogoCarousel = () => {
     useEffect(() => {
         const root = document.documentElement;
         const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
-        const marqueeContent = document.querySelector("ul.logoCarouselContent");
+
+        const marqueeContent = location.pathname === '/' ? document.querySelector(".homeContainer ul.logoCarouselContent") : document.querySelector(".comparadorSection ul.logoCarouselContent")
         
         root.style.setProperty("--marquee-elements", marqueeContent.children.length);
-        
+            
         for(let i=0; i<marqueeElementsDisplayed; i++) {
           marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
         }
-    }, [])
+
+    }, [location.pathname])
     
 
   return (

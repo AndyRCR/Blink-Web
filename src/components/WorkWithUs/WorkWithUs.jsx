@@ -3,24 +3,28 @@ import Swal from 'sweetalert2'
 import FileUploader from '../FileUploader/FileUploader'
 import { GlobalContext } from '../../context/GlobalStateContext'
 import './WorkWithUs.css'
+import { CircularProgress } from '@mui/material'
+import { useEffect } from 'react'
 
 const WorkWithUs = () => {
     
-    const {uploadFile, postulant, setPostulant, selectedFile} = useContext(GlobalContext)
+    const {uploadFile, postulant, setPostulant, selectedFile, isLoading} = useContext(GlobalContext)
 
     const verifyFields = () =>{
-        if(
-            selectedFile !== null &&
-            postulant.name !== '' &&
-            postulant.phone !== '' &&
-            postulant.email !== ''
-        ) uploadFile()
-        else{
-            Swal.fire(
-                'Intente nuevamente',
-                'Todos los campos son obligatorios',
-                'info'
-            )
+        if(!isLoading){
+            if(
+                selectedFile !== null &&
+                postulant.name !== '' &&
+                postulant.phone !== '' &&
+                postulant.email !== ''
+            ) uploadFile()
+            else{
+                Swal.fire(
+                    'Intente nuevamente',
+                    'Todos los campos son obligatorios',
+                    'info'
+                )
+            }
         }
     }
 
@@ -32,6 +36,9 @@ const WorkWithUs = () => {
         })
     }
 
+    useEffect(() => {
+    }, [isLoading])
+
     return (
         <div className='workWithUs'>
             <div className='content'>
@@ -42,6 +49,7 @@ const WorkWithUs = () => {
                 <div className="formItem">
                     <p>Nombre completo</p>
                     <input
+                    placeholder='Nombres y apellidos'
                     value={postulant.name}
                     name='name'
                     onChange={handleInputChange}
@@ -50,6 +58,7 @@ const WorkWithUs = () => {
                 <div className="formItem">
                     <p>Celular</p>
                     <input
+                    placeholder='Número de contacto'
                     value={postulant.phone}
                     name='phone'
                     onChange={handleInputChange}
@@ -58,6 +67,7 @@ const WorkWithUs = () => {
                 <div className="formItem">
                     <p>Correo electrónico</p>
                     <input
+                    placeholder='Correo de contacto'
                     value={postulant.email}
                     name='email'
                     onChange={handleInputChange}
@@ -65,7 +75,13 @@ const WorkWithUs = () => {
                 </div>
                 <FileUploader/>
                 <div className='formItem'>
-                    <button className='sendButton' onClick={verifyFields}>Subir</button>
+                    <button className='sendButton' onClick={verifyFields}>
+                        {isLoading ? (
+                            <CircularProgress style={{color: '#4E29C8', width: '25px', height: '25px'}}/>
+                        ):(
+                            <>Subir</>
+                        )}
+                    </button>
                 </div>
             </div>
 
