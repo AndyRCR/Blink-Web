@@ -1,9 +1,11 @@
 import React from 'react'
+import AboutContainer from '../components/AboutContainer/AboutContainer'
+
 
 const Nosotros = () => {
   return (
     <div className='nosotros'>
-        <h1>In development</h1>
+        <AboutContainer/>
     </div>
   )
 }

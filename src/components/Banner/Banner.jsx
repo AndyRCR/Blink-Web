@@ -11,6 +11,15 @@ const Banner = (props) => {
               {props.section === 'home' && (
                 <>Compará<br/>las mejores<br/>opciones</>
               )}
+              {props.section === 'comparador' && (
+                <>Compará<br/>ahora</>
+              )}
+              {props.section === 'about' && (
+                <>¡Hola!<br/>somos Blink</>
+              )}
+              {props.section === 'novedades' && (
+                <>Novedades</>
+              )}
               {props.section === 'faq' && (
                 <>¿Tenés<br/>preguntas?</>
               )}
@@ -20,6 +29,15 @@ const Banner = (props) => {
                 <>Estás conectado y tu salud también,<br/>encontrá los mejores planes para vos</>
               )
               }
+              {props.section === 'comparador' && (
+                <>Elegí la prepaga que mejor<br/>se adapte a tus necesidades</>
+              )}
+              {props.section === 'about' && (
+                <>Conocé un poco más de Blink</>
+              )}
+              {props.section === 'novedades' && (
+                <>¡Entérate de lo nuevo referido a la salud!</>
+              )}
               {props.section === 'faq' && (
                 <>Blink te despeja todas tus dudas</>
               )

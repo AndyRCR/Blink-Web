@@ -1,0 +1,81 @@
+.workWithUs{
+    display: flex;
+    padding: 80px 120px;
+}
+
+.workWithUs .content{
+    width: 50%;
+    padding-right: 30px;
+}
+
+.workWithUs .form{
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 30px;
+    grid-column-gap: 40px;
+    grid-row-gap: 15px;
+}
+
+.workWithUs h3{
+    font-weight: 500;
+    font-size: 33px;
+    line-height: 114.5%;
+    color: var(--blink-main);
+}
+
+.workWithUs .content p{
+    font-weight: 400;
+    font-size: 25.2px;
+    line-height: 32px;
+    color: #484848;
+    text-align: justify;
+    margin-top: 30px;
+}
+
+.workWithUs .formItem p{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--blink-main);
+}
+
+.workWithUs .formItem input{
+    width: 100%;
+    border: 1px solid #484848;
+    height: 50px;
+    margin-top: 6px;
+    border-radius: 12px;
+    padding-left: 12px;
+}
+
+.workWithUs .formItem input:active,
+.workWithUs .formItem input:focus{
+    outline: none;
+}
+
+.workWithUs .formItem:nth-child(5){
+    grid-column: 2/3;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.workWithUs .sendButton{
+    cursor: pointer;
+    width: 50%;
+    height: 50px;
+    border-radius: 12px;
+    border: 2px solid var(--button-main);
+    background-color: var(--button-main);
+    color: var(--blink-main);
+    font-weight: 700;
+    font-size: 14.9639px;
+    line-height: 22px;
+    transition: .3s;
+}
+
+.workWithUs .sendButton:hover{
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: 2px solid var(--blink-main);
+    background-color: #fff;
+}

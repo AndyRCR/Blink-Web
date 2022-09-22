@@ -1,0 +1,6 @@
+.comparadorComponent{
+    text-align: center;
+    font-size: 30px;
+    border: 1px dashed var(--blink-main);
+    padding: 30px 0;
+}

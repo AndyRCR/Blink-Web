@@ -1,9 +1,10 @@
 import React from 'react'
+import NovedadesContainer from '../components/NovedadesContainer/NovedadesContainer'
 
 const Novedades = () => {
   return (
     <div className='novedades'>
-        <h1>In development</h1>
+        <NovedadesContainer/>
     </div>
   )
 }

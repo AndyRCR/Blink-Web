@@ -4,7 +4,7 @@ import HomeContainer from '../components/HomeContainer/HomeContainer'
 const Home = () => {
   return (
     <div className='home'>
-        <HomeContainer/>    
+        <HomeContainer/>
     </div>
   )
 }

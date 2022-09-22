@@ -1,0 +1,37 @@
+.novedadesBanner{
+    position: relative;
+    overflow: hidden;
+}
+
+.novedadesContent{
+    position: relative;
+    z-index: 40;
+    padding: 300px 120px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.novedadesInfo{
+    color: #484848;
+}
+
+.novedadesInfo h3{
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 114.5%;
+}
+
+.novedadesInfo p{
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 150%;
+    margin: 25px 0;
+    text-align: justify;
+}
+
+.novedades img{
+    width: 470px;
+    border-radius: 10px;
+    margin-right: 100px;
+}

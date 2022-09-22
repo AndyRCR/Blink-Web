@@ -1,9 +1,10 @@
 import React from 'react'
+import ComparadorContainer from '../components/ComparadorContainer/ComparadorContainer'
 
 const Comparador = () => {
   return (
     <div className='comparador'>
-        <h1>In development</h1>
+        <ComparadorContainer/>
     </div>
   )
 }

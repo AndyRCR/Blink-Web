@@ -8,28 +8,6 @@
     overflow: hidden;
 }
 
-.steps .bg1,
-.steps .bg2,
-.steps .bg3{
-    position: absolute;
-    margin: 0 auto;
-    top: 0;
-}
-
-.steps .bg1{
-    z-index: 10;
-}
-
-.steps .bg2{
-    top: 52px;
-    z-index: 20;
-}
-
-.steps .bg3{
-    top: 70px;
-    z-index: 30;
-}
-
 .steps .title{
     font-weight: 700;
     font-size: 40px;

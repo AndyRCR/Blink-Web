@@ -7,36 +7,12 @@
     position: relative;
 }
 
-.faqSection .bg1,
-.faqSection .bg2,
-.faqSection .bg3{
-    position: absolute;
-    margin: 0 auto;
-    top: 0;
-}
-
-.faqSection .bg1{
-    z-index: 10;
-}
-
-.faqSection .bg2{
-    top: 52px;
-    z-index: 20;
-}
-
 .faqSection h1{
     color: var(--blink-main);
     font-weight: 500;
     font-size: 33px;
     line-height: 114.5%;
     margin-bottom: 24px;
-}
-
-.faqSection p{
-    color: #484848;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 32px;
 }
 
 .faqSection .faqQuesContainer{
@@ -46,17 +22,5 @@
     flex-direction: column;
     justify-content: space-between;
     align-content: space-between;
-    padding: 20% 120px 70px;
-}
-
-.faqQuesContainer > div{
-    margin: 35px 0;
-}
-
-.faqSection .faqContainerOne,
-.faqSection .faqContainerTwo,
-.faqSection .faqContainerTree,
-.faqSection .faqContainerFour {
-    width: 95%;
-    height: auto;
+    padding: 200px 120px 70px;
 }
