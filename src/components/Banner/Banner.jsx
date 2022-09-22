@@ -64,9 +64,9 @@ const Banner = (props) => {
       </div>
       <div className='imageContainer'>
         <img
-        data-aos="fade-left"
-        data-aos-duration="1000"
-        data-aos-easing="ease-in-sine"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        // data-aos-duration="500"
         src={props.image}
         alt={`blink ${props.section}`} />
       </div>

@@ -1,28 +1,13 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Layout from '../components/Layout'
+import { BrowserRouter } from 'react-router-dom'
 import ScrollToTop from '../tools/ScrollToTop'
-import ArticuloTest from '../views/ArticuloTest'
-import Comparador from '../views/Comparador'
-import Home from '../views/Home'
-import Nosotros from '../views/Nosotros'
-import Novedades from '../views/Novedades'
-import PreguntasFrecuentes from '../views/PreguntasFrecuentes'
+import AnimatedRoutes from './AnimatedRoutes'
 
 const Rutas = () => {
   return (
     <BrowserRouter>
       <ScrollToTop>
-        <Routes>
-          <Route path='/' element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path='/comparador' element={<Comparador />} />
-            <Route path='/nosotros' element={<Nosotros />} />
-            <Route path='/novedades' element={<Novedades />} />
-            <Route path='/faq' element={<PreguntasFrecuentes />} />
-            <Route path='/articuloTest' element={<ArticuloTest />} />
-          </Route>
-        </Routes>
+        <AnimatedRoutes/>
       </ScrollToTop>
     </BrowserRouter>
   )

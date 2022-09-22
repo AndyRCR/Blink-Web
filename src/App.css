@@ -7,6 +7,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 :root{
     --blink-main: #4E29C8;
     --button-main: #30FF9C;
