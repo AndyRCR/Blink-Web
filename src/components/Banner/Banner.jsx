@@ -34,10 +34,7 @@ const Banner = (props) => {
           </div>
         </div>
 
-        <p
-        data-aos="fade-zoom-in"
-        data-aos-easing="ease-in-back"
-        data-aos-duration="1000">
+        <p>
           {props.section === 'home' && (
             <>Estás conectado y tu salud también,<br />encontrá los mejores planes para vos</>
           )
@@ -69,7 +66,7 @@ const Banner = (props) => {
         <img
         data-aos="fade-zoom-in"
         data-aos-easing="ease-in-back"
-        data-aos-duration="1000"
+        data-aos-duration="1500"
         src={props.image}
         alt={`blink ${props.section}`} />
       </div>
