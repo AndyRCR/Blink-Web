@@ -33,7 +33,6 @@
     border-radius: 16px;
     background-color: var(--button-main);
     color: #5A00FE;
-    padding: 18px 16px;
     font-weight: 700;
     font-size: 19px;
     line-height: 28px;
@@ -50,7 +49,6 @@
     border-radius: 16px;
     background-color: #5A00FE;
     color: #fff;
-    padding: 18px 16px;
     font-weight: 700;
     font-size: 19px;
     line-height: 28px;
@@ -64,10 +62,21 @@
 .primaryButton a,
 .secondaryButton a{
     text-decoration: none;
-    color: #fff;
     width: 100%;
     height: 100%;
-    padding: 8px 16px;
+    padding: 18px 16px;
+}
+
+.secondaryButton a{
+    color: #fff;
+}
+
+.primaryButton a{
+    color: var(--blink-main);
+}
+
+.primaryButton a:hover{
+    color: #fff;
 }
 
 .bg1,

@@ -3,6 +3,7 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import './Banner.css'
 import BlastText from '../BlastText/BlastText'
+import { Link } from 'react-router-dom'
 
 const Banner = (props) => {
   return (
@@ -54,8 +55,10 @@ const Banner = (props) => {
         </p>
         {props.section === 'home' && (
           <button className='bannerButton primaryButton'>
-            Comparar planes
-            <FontAwesomeIcon icon={faChevronRight} />
+            <Link to={'/comparador'}>
+              Comparar planes
+              <FontAwesomeIcon icon={faChevronRight} />
+            </Link>
           </button>
         )}
       </div>

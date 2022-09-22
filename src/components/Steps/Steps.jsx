@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import StepItem from '../StepItem/StepItem'
 import './Steps.css'
+import { Link } from 'react-router-dom'
 
 const Steps = () => {
   return (
@@ -63,8 +64,10 @@ const Steps = () => {
 
             <div className='buttonContainer'>
                 <button className='primaryButton'>
-                    Comparar planes
-                    <FontAwesomeIcon icon={faChevronRight}/>
+                    <Link to={'/comparador'}>
+                        Comparar planes
+                        <FontAwesomeIcon icon={faChevronRight}/>
+                    </Link>
                 </button>
             </div>
         </div>

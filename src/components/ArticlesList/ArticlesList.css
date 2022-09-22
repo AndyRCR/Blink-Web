@@ -83,3 +83,7 @@
 .articlesList .articlesPagination{
     padding: 30px 0;
 }
+
+.articleItem .secondaryButton a{
+    padding: 10px 16px;
+}
