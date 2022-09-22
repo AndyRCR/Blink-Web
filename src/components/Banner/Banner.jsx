@@ -2,57 +2,71 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import './Banner.css'
+import BlastText from '../BlastText/BlastText'
 
 const Banner = (props) => {
   return (
     <div className='banner'>
-        <div className='sloganContainer'>
-            <h2>
+      <div className='sloganContainer principal'>
+
+        <div className="page">
+          <div className="container home-page-1">
+            <div className="text-zone">
               {props.section === 'home' && (
-                <>Compará<br/>las mejores<br/>opciones</>
-              )}
-              {props.section === 'comparador' && (
-                <>Compará<br/>ahora</>
-              )}
-              {props.section === 'about' && (
-                <>¡Hola!<br/>somos Blink</>
-              )}
-              {props.section === 'novedades' && (
-                <>Novedades</>
-              )}
-              {props.section === 'faq' && (
-                <>¿Tenés<br/>preguntas?</>
-              )}
-            </h2>
-            <p>
-              {props.section === 'home' && (
-                <>Estás conectado y tu salud también,<br/>encontrá los mejores planes para vos</>
+                <BlastText text="home" className="blast-root" />
               )
               }
               {props.section === 'comparador' && (
-                <>Elegí la prepaga que mejor<br/>se adapte a tus necesidades</>
+                <BlastText text="comparador" className="blast-root" />
               )}
               {props.section === 'about' && (
-                <>Conocé un poco más de Blink</>
+                <BlastText text="about" className="blast-root" />
               )}
               {props.section === 'novedades' && (
-                <>¡Entérate de lo nuevo referido a la salud!</>
+                <BlastText text="novedades" className="blast-root" />
               )}
               {props.section === 'faq' && (
-                <>Blink te despeja todas tus dudas</>
+                <BlastText text="faq" className="blast-root" />
               )
               }
-            </p>
-            {props.section === 'home' && (
-              <button className='bannerButton primaryButton'>
-                Comparar planes
-                <FontAwesomeIcon icon={faChevronRight}/>
-              </button>
-            )}
+            </div>
+          </div>
         </div>
-        <div className='imageContainer'>
-            <img src={props.image} alt={`blink ${props.section}`} />
-        </div>
+
+        <p>
+          {props.section === 'home' && (
+            <>Estás conectado y tu salud también,<br />encontrá los mejores planes para vos</>
+          )
+          }
+          {props.section === 'comparador' && (
+            <>Elegí la prepaga que mejor<br />se adapte a tus necesidades</>
+          )}
+          {props.section === 'about' && (
+            <>Conocé un poco más de Blink</>
+          )}
+          {props.section === 'novedades' && (
+            <>¡Entérate de lo nuevo referido a la salud!</>
+          )}
+          {props.section === 'faq' && (
+            <>Blink te despeja todas tus dudas</>
+          )
+          }
+        </p>
+        {props.section === 'home' && (
+          <button className='bannerButton primaryButton'>
+            Comparar planes
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
+        )}
+      </div>
+      <div className='imageContainer'>
+        <img
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-sine"
+        src={props.image}
+        alt={`blink ${props.section}`} />
+      </div>
     </div>
   )
 }

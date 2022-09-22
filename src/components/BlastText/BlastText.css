@@ -1,0 +1,31 @@
+.principal .text-zone {
+    margin-top: 50px;
+    max-height: 90%;
+    text-align: left;
+    user-select: none;
+}
+
+.principal h1 span {
+    font-size: 80px;
+    line-height: 90px;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+}
+
+.principal h1 span {
+    color: var(--blink-main);
+}
+
+.principal .blast {
+    opacity: 0;
+    display: inline-block;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    font-weight: 800;
+    font-size: 93px;
+    line-height: 98%;
+}
+
+.principal .blast:hover {
+    color: #08FDD8;
+}
