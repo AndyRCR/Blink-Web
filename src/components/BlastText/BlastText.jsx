@@ -54,7 +54,7 @@ const BlastText = ({ text }) => {
                     }
                 );
             });
-        }, 1000);
+        }, 4000);
 
         setTimeout(function () {
             $(`.principal .flat-button`).addClass("animated bounceIn");
