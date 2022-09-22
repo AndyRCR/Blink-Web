@@ -83,7 +83,7 @@
 }
 
 .swal2-icon.swal2-info{
-    border-color: var(--blink-main);
+    border-color: var(--blink-main) !important;
 }
 
 .swal2-icon.swal2-info.swal2-icon-show{
