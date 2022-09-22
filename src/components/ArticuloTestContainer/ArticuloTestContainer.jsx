@@ -50,6 +50,7 @@ const ArticuloTestContainer = () => {
           <CssInput
             style={{ border: '1px solid #4E29C8', borderRadius: '12px' }}
             id="outlined-adornment-weight"
+            placeholder='Buscar artículo'
             endAdornment={
               <InputAdornment position="end">
                 <FontAwesomeIcon style={{ color: '#4E29C8' }} icon={faSearch} />

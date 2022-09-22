@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
-import './WorkWithUs.css'
+import Swal from 'sweetalert2'
 import FileUploader from '../FileUploader/FileUploader'
 import { GlobalContext } from '../../context/GlobalStateContext'
+import './WorkWithUs.css'
 
 const WorkWithUs = () => {
     
@@ -14,7 +15,13 @@ const WorkWithUs = () => {
             postulant.phone !== '' &&
             postulant.email !== ''
         ) uploadFile()
-        else alert('Todos los campos son obligatorios')
+        else{
+            Swal.fire(
+                'Intente nuevamente',
+                'Todos los campos son obligatorios',
+                'info'
+            )
+        }
     }
 
     const handleInputChange = (e) =>{

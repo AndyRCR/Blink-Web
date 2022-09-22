@@ -2,6 +2,7 @@ import React, { createContext, useState } from "react";
 import axios from 'axios'
 import emailjs from 'emailjs-com'
 import $ from 'jquery'
+import Swal from 'sweetalert2'
 
 export const GlobalContext = createContext()
 
@@ -63,11 +64,21 @@ const GlobalStateContext = ({ children }) => {
                     path: res.data.Location
                   })
                   .then(() => {
-                    alert('Registro exitoso')
+                    Swal.fire(
+                      'Gracias por su interés en Blink!',
+                      'Lo contactaremos lo más pronto posible',
+                      'success'
+                    )
                     clearPostulantForm()
                   })
                 })
-                .catch(err => console.log(err))
+                .catch(err => {
+                  Swal.fire(
+                    'Error 😕',
+                    'Ocurrió un error en el servidor, intente nuevamente mas tarde',
+                    'error'
+                  )
+                })
 
         } catch (error) {
             console.log(error)
