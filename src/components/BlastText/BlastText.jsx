@@ -29,9 +29,7 @@ const BlastText = ({ text }) => {
 
             var el = $(this);
 
-            setTimeout(function () {
-                el.addClass("animated bounceIn");
-            }, a);
+            el.addClass("animated bounceIn");
 
             if (a < 1200) {
                 a = a + 50;
@@ -39,22 +37,22 @@ const BlastText = ({ text }) => {
                 a = a + 35;
             }
         });
-        setTimeout(function () {
-            $(`.principal .blast`).removeClass("animated bounceIn");
-            $(`.principal .blast`).css("opacity", 1);
 
-            $(`.principal .blast`).mouseenter(function () {
-                var el = $(this);
+        $(`.principal .blast`).removeClass("animated bounceIn");
+        $(`.principal .blast`).css("opacity", 1);
 
-                $(this).addClass("animated rubberBand");
-                $(this).one(
-                    "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",
-                    function () {
-                        el.removeClass("animated rubberBand");
-                    }
-                );
-            });
-        }, 3000);
+        $(`.principal .blast`).mouseenter(function () {
+            var el = $(this);
+
+            $(this).addClass("animated rubberBand");
+            $(this).one(
+                "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",
+                function () {
+                    el.removeClass("animated rubberBand");
+                }
+            );
+        });
+
 
         setTimeout(function () {
             $(`.principal .flat-button`).addClass("animated bounceIn");
@@ -85,19 +83,19 @@ const BlastText = ({ text }) => {
         <>
             {text === 'home' && (
                 <h1 aria-label={text} className="blast-root">
-                    Compará<br/>las mejores<br/>opciones
+                    Compará<br />las mejores<br />opciones
                 </h1>
             )}
 
             {text === 'comparador' && (
                 <h1 aria-label={text} className="blast-root">
-                    Compará<br/>ahora
+                    Compará<br />ahora
                 </h1>
             )}
 
             {text === 'about' && (
                 <h1 aria-label={text} className="blast-root">
-                    ¡Hola!<br/>somos Blink
+                    ¡Hola!<br />somos Blink
                 </h1>
             )}
 
@@ -109,7 +107,7 @@ const BlastText = ({ text }) => {
 
             {text === 'faq' && (
                 <h1 aria-label={text} className="blast-root">
-                    ¿Tenés<br/>preguntas?
+                    ¿Tenés<br />preguntas?
                 </h1>
             )}
         </>
