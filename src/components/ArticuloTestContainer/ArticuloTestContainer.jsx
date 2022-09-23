@@ -13,8 +13,15 @@ const CssInput = withStyles({
     "& .MuiOutlinedInput-notchedOutline": {
       border: 'none'
     },
-    "&.Mui-focused": {
-      border: "none"
+    "&.Mui-focused.cssInput": {
+      border: "1px solid #4744CC"
+    },
+    "& .searchIcon": {
+      color: '#383838',
+      transition: '.3s'
+    },
+    "&.Mui-focused .searchIcon": {
+      color: "#4744CC"
     }
   }
 })(OutlinedInput);
@@ -48,15 +55,14 @@ const ArticuloTestContainer = () => {
         <div className='filter'>
           <h3>Conocé más novedades:</h3>
           <CssInput
-            style={{ border: '1px solid #4744CC', borderRadius: '12px' }}
-            id="outlined-adornment-weight"
-            placeholder='Buscar artículo'
-            endAdornment={
-              <InputAdornment position="end">
-                <FontAwesomeIcon style={{ color: '#4744CC' }} icon={faSearch} />
-              </InputAdornment>}
-            aria-describedby="outlined-weight-helper-text"
-          />
+          className='cssInput'
+          id="outlined-adornment-weight"
+          placeholder='Buscar artículo'
+          startAdornment={
+            <InputAdornment position="start">
+              <FontAwesomeIcon className='searchIcon' icon={faSearch}/>
+            </InputAdornment>}
+          aria-describedby="outlined-weight-helper-text"/>
         </div>
         <div className='articles'>
           <div className='articlesGrid'>

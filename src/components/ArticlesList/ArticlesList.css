@@ -2,6 +2,12 @@
     padding: 0 120px;
 }
 
+.articlesList .cssInput{
+    border: 1px solid var(--gris-blink);
+    border-radius: 12px;
+    transition: .3s;
+}
+
 .articlesList h3{
     font-weight: 500;
     font-size: 33px;

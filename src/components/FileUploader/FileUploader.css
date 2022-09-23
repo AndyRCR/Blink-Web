@@ -11,6 +11,11 @@
     cursor: pointer;
     text-align: center;
     margin: 0;
+    transition: .3s;
+}
+
+.filelabel:hover{
+    background-color: var(--blink-main);
 }
 
 .filelabel .fileIcon,
@@ -19,6 +24,11 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
+}
+
+.filelabel:hover .fileIcon,
+.filelabel:hover .title{
+    color: #fff;
 }
 
 .filelabel .fileIcon {
