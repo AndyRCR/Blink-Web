@@ -7,9 +7,9 @@ const PreguntasFrecuentes = () => {
     <motion.div
     className='preguntasFrecuentes'
     style={{paddingTop: '105px'}}
-    initial={{width: '0', transition: {duration: .2}}}
-    animate={{width: '100%', transition: {duration: .2}}}
-    exit={{x: -1 * window.innerWidth, transition: {duration: .2}}}>
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    exit={{opacity: 0}}>
         <FaqContainer/>
     </motion.div>
   )

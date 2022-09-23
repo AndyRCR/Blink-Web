@@ -28,8 +28,7 @@
     font-weight: 400;
     font-size: 25.2px;
     line-height: 32px;
-    color: #484848;
-    text-align: justify;
+    color: var(--gris-blink);
     margin-top: 30px;
 }
 
@@ -42,11 +41,43 @@
 
 .workWithUs .formItem input{
     width: 100%;
-    border: 1px solid #484848;
+    border: 1px solid var(--gris-blink);
     height: 50px;
     margin-top: 6px;
     border-radius: 12px;
     padding-left: 12px;
+    background-color: #fff;
+}
+
+.workWithUs .formItem.errorInput input{
+    border-color: red;
+}
+
+.workWithUs .formItem.formItem.errorInput p,
+.workWithUs .formItem.formItem.errorInput input{
+    color: red;
+}
+
+.workWithUs .formItem input:focus{
+    border: 2px solid var(--blink-main);
+}
+
+.workWithUs .formItem.errorInput input:focus{
+    border-color: red;
+    color: red;
+}
+
+.workWithUs p.errorLabel{
+    opacity: 0;
+    color: red;
+    font-weight: normal;
+    font-size: 12px;
+    transition: .5s;
+    position: relative;
+}
+
+.workWithUs p.errorLabel.visible{
+    opacity: 1;
 }
 
 .workWithUs .formItem input:active,
@@ -61,25 +92,13 @@
 }
 
 .workWithUs .sendButton{
-    cursor: pointer;
-    width: 50%;
     height: 50px;
-    border-radius: 12px;
-    border: none;
-    background-color: var(--button-main);
-    color: var(--blink-main);
     font-weight: 700;
-    font-size: 14.9639px;
+    font-size: 15px;
     line-height: 22px;
-    transition: .3s;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.workWithUs .sendButton:hover{
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    background-color: #29db85;
 }
 
 .swal2-icon.swal2-info{

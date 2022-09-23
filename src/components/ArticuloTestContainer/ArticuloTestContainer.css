@@ -11,12 +11,17 @@
     min-height: 400px;
 }
 
+.articleTestContainer .articleContent .articleImage img{
+    border-radius: 20px;
+    /* width: 100%; */
+}
+
 .articleTestContainer .articleContent h1{
     font-weight: 800;
     font-size: 58px;
     line-height: 98%;
     color: var(--blink-main);
-    text-align: center;
+    text-align: left;
     margin: 20px 0 40px 0;
 }
 

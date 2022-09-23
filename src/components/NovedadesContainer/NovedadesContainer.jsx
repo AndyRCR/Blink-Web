@@ -10,14 +10,13 @@ const NovedadesContainer = () => {
             <Banner section='novedades' image='https://blinkimages.s3.amazonaws.com/novedades/novedades_image.webp' />
             <div className="novedadesBanner">
                 <svg className='bg1' width="1920" height="493" viewBox="0 0 1920 493" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1920 25.5391C1799.53 100.282 1410.2 205.428 991.349 175.994C572.494 146.56 219.969 -27.8852 7.14945e-05 3.83934V493H1920V25.5391Z" fill="url(#paint0_linear_205_99)" />
+                    <path d="M1920 25.5391C1799.53 100.282 1410.2 205.428 991.349 175.994C572.494 146.56 219.969 -27.8852 0.00012207 3.83934V493H1920V25.5391Z" fill="url(#paint0_linear_205_99)" />
                     <defs>
-                        <linearGradient id="paint0_linear_205_99" x1="980.826" y1="400.144" x2="980.826" y2="-26.1006" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#5A00FE" />
-                            <stop offset="0.23" stopColor="#6F20FF" />
-                            <stop offset="0.48" stopColor="#7A31FF" />
-                            <stop offset="0.7" stopColor="#876AE8" />
-                            <stop offset="0.89" stopColor="#947AEB" />
+                        <linearGradient id="paint0_linear_205_99" x1="960" y1="0" x2="960" y2="493" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#A99BFF" />
+                            <stop offset="0.282403" stopColor="#7C6BED" stopOpacity="0.985381" />
+                            <stop offset="0.615743" stopColor="#6966E9" />
+                            <stop offset="1" stopColor="#4744CC" />
                         </linearGradient>
                     </defs>
                 </svg>
@@ -28,18 +27,18 @@ const NovedadesContainer = () => {
 
                 <div className='novedadesContent'>
                     <div className='novedadesImage'>
-                        <img src="https://programacion.net/files/article/20161110041116_image-not-found.png" alt="novedades blink main" />
+                        <img src="https://blinkimages.s3.amazonaws.com/bostezo.jpg" alt="novedades blink main" />
                     </div>
                     <div className='novedadesInfo'>
                         <h3>Qué alimentos consumir para combatir el cansancio</h3>
                         <p>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. Estos textos hacen parecerlo un español que se puede leer.</p>
-                        <button className='secondaryButton'>
+                        <button className='primaryButton'>
                             <Link to={'/articuloTest'}>Leer más</Link>
                         </button>
                     </div>
                 </div>
 
-                <ArticlesList/>
+                <ArticlesList />
             </div>
         </div>
     )

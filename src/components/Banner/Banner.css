@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 60px 90px 0px 120px;
+    padding: 60px 120px 0;
 }
 
 .sloganContainer h2,
@@ -38,10 +38,4 @@
     height: auto;
     width: auto;
     aspect-ratio: 10/9;
-}
-
-.banner button:hover{
-    border: 2px solid var(--blink-main);
-    background-color: var(--blink-main);
-    color: var(--button-main);
 }

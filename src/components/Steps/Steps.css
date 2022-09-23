@@ -42,3 +42,7 @@
     background-color: transparent;
     color: var(--button-main);
 }
+
+.steps button:hover a{
+    color: #fff;
+}

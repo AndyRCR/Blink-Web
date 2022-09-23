@@ -23,7 +23,7 @@ const CssInput = withStyles({
 const useStyles = makeStyles({
   root: {
       '& ul > li:not(:first-child):not(:last-child) > button.Mui-selected': {
-        backgroundColor: '#4E29C8',
+        backgroundColor: '#4744CC',
         color:'#fff',
         fontWeight: 'bold'
       },
@@ -49,12 +49,12 @@ const ArticlesList = () => {
       <div className='filter'>
         <h3>Conocé más novedades:</h3>
         <CssInput
-            style={{border: '1px solid #4E29C8', borderRadius: '12px'}}
+            style={{border: '1px solid #4744CC', borderRadius: '12px'}}
             id="outlined-adornment-weight"
             placeholder='Buscar artículo'
             endAdornment={
             <InputAdornment position="end">
-              <FontAwesomeIcon style={{color: '#4E29C8'}} icon={faSearch}/>
+              <FontAwesomeIcon style={{color: '#4744CC'}} icon={faSearch}/>
             </InputAdornment>}
             aria-describedby="outlined-weight-helper-text"
           />
@@ -65,13 +65,13 @@ const ArticlesList = () => {
               return (
                 <div className='articleItem' key={`article ${index}`}>
                   <div className='image'>
-                    <img src="https://programacion.net/files/article/20161110041116_image-not-found.png" alt={`blink ${article.title}`} />
+                    <img src={article.image} alt={`blink ${article.title}`} />
                   </div>
                   <div className='info'>
                     <h4>{article.title}</h4>
                     <p>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.</p>
                     <div className='button'>
-                      <button className='secondaryButton'>
+                      <button className='primaryButton'>
                         <Link to={'/articuloTest'}>Ver más</Link>
                       </button>
                     </div>

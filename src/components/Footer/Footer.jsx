@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSquareFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { faInstagram } from "@fortawesome/free-brands-svg-icons"
 import React from 'react'
 import Logo from '../Logo/Logo'
 import './Footer.css'
@@ -34,7 +34,6 @@ const Footer = () => {
         </div>
         <div className="footerItem">
             <FontAwesomeIcon icon={faInstagram} style={{fontSize : '35px'}}/>
-            <FontAwesomeIcon icon={faSquareFacebook} style={{fontSize : '35px', marginLeft: '8px'}}/>
             <p>comparador.blink</p>
         </div>
     </div>

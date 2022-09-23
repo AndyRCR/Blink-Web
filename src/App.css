@@ -12,8 +12,9 @@ body{
 }
 
 :root{
-    --blink-main: #4E29C8;
-    --button-main: #30FF9C;
+    --blink-main: #4744CC;
+    --button-main: #34E8CA;
+    --gris-blink: #383838;
 }
 
 ::-webkit-scrollbar-track{
@@ -32,11 +33,12 @@ body{
 }
 
 .primaryButton{
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border: 2px solid var(--button-main);
     cursor: pointer;
-    border-radius: 16px;
+    border-radius: 56px;
     background-color: var(--button-main);
-    color: #5A00FE;
+    color: var(--gris-blink);
     font-weight: 700;
     font-size: 19px;
     line-height: 28px;
@@ -48,11 +50,12 @@ body{
 }
 
 .secondaryButton{
-    border: 2px solid #5A00FE;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: 2px solid var(--blink-main);
     cursor: pointer;
-    border-radius: 16px;
-    background-color: #5A00FE;
-    color: #fff;
+    border-radius: 56px;
+    background-color: var(--blink-main);
+    color: var(--gris-blink);
     font-weight: 700;
     font-size: 19px;
     line-height: 28px;
@@ -71,16 +74,14 @@ body{
     padding: 18px 16px;
 }
 
-.secondaryButton a{
-    color: #fff;
-}
-
+.secondaryButton a,
 .primaryButton a{
-    color: var(--blink-main);
+    color: var(--gris-blink);
 }
 
-.primaryButton a:hover{
-    color: #fff;
+.primaryButton:hover,
+.secondaryButton:hover{
+    transform: scale(1.05);
 }
 
 .bg1,
