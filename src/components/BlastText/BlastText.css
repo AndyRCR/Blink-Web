@@ -22,8 +22,12 @@
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
     font-weight: 800;
-    font-size: 93px;
+    font-size: 90px;
     line-height: 98%;
+}
+
+.homeContainer .principal .blast {
+    font-size: 80px;
 }
 
 .principal .blast:hover {
