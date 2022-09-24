@@ -13,7 +13,8 @@
 }
 
 .navbar.transparent{
-    background-color: rgba(71,68,204,0.9);
+    background: rgba(71, 68, 204, 0.8);
+    backdrop-filter: blur(6px);
 }
 
 .navbar .menu{
