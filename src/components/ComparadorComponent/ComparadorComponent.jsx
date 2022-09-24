@@ -1,10 +1,12 @@
 import React from 'react'
+import ComparadorForm from '../ComparadorForm/ComparadorForm'
 import './ComparadorComponent.css'
 
 const Comparador = () => {
+
   return (
     <div className='comparadorComponent'>
-        Comparador en proceso 😅
+      <ComparadorForm state={'form'}/>
     </div>
   )
 }

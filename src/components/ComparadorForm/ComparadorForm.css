@@ -1,0 +1,111 @@
+.comparadorForm{
+    display: flex;
+    justify-content: center;
+    text-align: left;
+}
+
+.comparadorForm .form{
+    display: flex;
+}
+
+.comparadorForm .subForm{
+    width: 50%;
+    margin: 0 50px;
+}
+
+.comparadorForm .formItem{
+    margin: 10px 0;
+}
+
+.comparadorForm h3{
+    font-weight: 500;
+    font-size: 33px;
+    line-height: 114.5%;
+    color: var(--blink-main);
+}
+
+.comparadorForm .content p{
+    font-weight: 400;
+    font-size: 25.2px;
+    line-height: 32px;
+    color: var(--gris-blink);
+    margin-top: 30px;
+}
+
+.comparadorForm .formItem p{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--blink-main);
+}
+
+.comparadorForm .formItem input,
+.comparadorForm .formItem .customSelect{
+    width: 350px;
+    border: 1px solid var(--gris-blink);
+    height: 50px;
+    margin-top: 6px;
+    border-radius: 12px;
+    padding-left: 12px;
+    background-color: #fff;
+}
+
+.comparadorForm .formItem.errorInput input{
+    border-color: red;
+}
+
+.comparadorForm .formItem.formItem.errorInput p,
+.comparadorForm .formItem.formItem.errorInput input{
+    color: red;
+}
+
+.comparadorForm .formItem input:focus{
+    border: 2px solid var(--blink-main);
+}
+
+.comparadorForm .formItem.errorInput input:focus{
+    border-color: red;
+    color: red;
+}
+
+.comparadorForm p.errorLabel{
+    opacity: 0;
+    color: red;
+    font-weight: normal;
+    font-size: 12px;
+    transition: .5s;
+    position: relative;
+}
+
+.comparadorForm p.errorLabel.visible{
+    opacity: 1;
+}
+
+.comparadorForm .formItem input:active,
+.comparadorForm .formItem input:focus,
+.comparadorForm .formItem .customSelect:active,
+.comparadorForm .formItem .customSelect:focus{
+    outline: none;
+}
+
+.comparadorForm .formItem option{
+    padding: 10px 0;
+}
+
+.comparadorForm .sendButton{
+    height: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MuiPaper-root ul li:hover{
+    background-color: rgba(25, 118, 210, 0.12) !important;
+}
+
+.MuiPaper-root ul li.Mui-selected{
+    background-color: rgba(71, 68, 204, 0.15) !important;
+}

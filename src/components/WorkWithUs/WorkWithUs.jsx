@@ -2,9 +2,9 @@ import React, { useContext, useState } from 'react'
 import Swal from 'sweetalert2'
 import FileUploader from '../FileUploader/FileUploader'
 import { GlobalContext } from '../../context/GlobalStateContext'
-import './WorkWithUs.css'
 import { CircularProgress } from '@mui/material'
 import { useEffect } from 'react'
+import './WorkWithUs.css'
 
 const phoneRegex = /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -17,7 +17,6 @@ const WorkWithUs = () => {
     const [validName, setValidName] = useState(true)
     const [validPhone, setValidPhone] = useState(true)
     const [validEmail, setValidEmail] = useState(true)
-    // const [validForm, setValidForm] = useState(true)
 
     const verifyFields = () =>{
         if(!isLoading){
@@ -86,7 +85,9 @@ const WorkWithUs = () => {
                     name='name'
                     onChange={handleInputChange}
                     type="text" />
-                    <p className={validName ? 'errorLabel' : 'errorLabel visible'}>Nombre no válido</p>
+                    <p className={validName ? 'errorLabel' : 'errorLabel visible'}>
+                        {postulant.name === '' ? 'Campo obligatorio' : 'Nombre no válido'}
+                    </p>
                 </div>
                 <div className={validPhone ? 'formItem' : 'formItem errorInput'}>
                     <p>Celular</p>
@@ -97,7 +98,9 @@ const WorkWithUs = () => {
                     name='phone'
                     onChange={handleInputChange}
                     type="text"/>
-                    <p className={validPhone ? 'errorLabel' : 'errorLabel visible'}>Número no válido</p>
+                    <p className={validPhone ? 'errorLabel' : 'errorLabel visible'}>
+                        {postulant.phone === '' ? 'Campo obligatorio' : 'Múmero no válido'}
+                    </p>
                 </div>
                 <div className={validEmail ? 'formItem' : 'formItem errorInput'}>
                     <p>Correo electrónico</p>
@@ -108,7 +111,9 @@ const WorkWithUs = () => {
                     name='email'
                     onChange={handleInputChange}
                     type="email" />
-                    <p className={validEmail ? 'errorLabel' : 'errorLabel visible'}>Correo no válido</p>
+                    <p className={validEmail ? 'errorLabel' : 'errorLabel visible'}>
+                        {postulant.email === '' ? 'Campo obligatorio' : 'Correo no válido'}
+                    </p>
                 </div>
                 <FileUploader/>
                 <div className='formItem'>
