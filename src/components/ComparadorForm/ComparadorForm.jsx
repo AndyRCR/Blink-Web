@@ -3,6 +3,8 @@ import { CircularProgress, MenuItem, Select } from '@mui/material'
 import Swal from 'sweetalert2'
 import { GlobalContext } from '../../context/GlobalStateContext'
 import { makeStyles } from '@mui/styles'
+import Switch from '../Switch/Switch'
+import ReCAPTCHA from 'react-google-recaptcha'
 import './ComparadorForm.css'
 
 const phoneRegex = /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/
@@ -16,7 +18,7 @@ const useStyles = makeStyles({
             color: '#757575 !important',
             fontSize: '14px !important'
         },
-        '& #mui-component-select-zone': {
+        '& .MuiSelect-select': {
             paddingLeft: '0 !important'
         },
         "&.Mui-focused": {
@@ -34,12 +36,20 @@ const useStyles = makeStyles({
 const ComparadorForm = ({ state }) => {
 
     const classes = useStyles()
-    const { user, setUser, isLoading } = useContext(GlobalContext)
+    const {
+        user, setUser,
+        isLoading,
+        partnerSwitch, setPartnerSwitch,
+        childrenSwitch, setChildrenSwitch
+    } = useContext(GlobalContext)
 
     const [validName, setValidName] = useState(true)
     const [validPhone, setValidPhone] = useState(true)
     const [validEmail, setValidEmail] = useState(true)
     const [validAge, setValidAge] = useState(true)
+
+    const[validPartnerAge, setValidPartnerAge] = useState(true)
+    const[validChildrens, setValidChildrens] = useState(true)
 
     const verifyFields = () => {
         if (!isLoading) {
@@ -47,9 +57,16 @@ const ComparadorForm = ({ state }) => {
                 user.name !== '' &&
                 user.phone !== '' &&
                 user.email !== '' &&
-                user.age !== ''
+                user.age !== '' &&
+                (!partnerSwitch || user.partnerAge !== '') &&
+                (!childrenSwitch || user.childrens !== '')
             ) {
-                if (validName && validPhone && validEmail && validAge) alert('ga')
+                if (validName &&
+                    validPhone &&
+                    validEmail &&
+                    validAge &&
+                    (!partnerSwitch || validPartnerAge) &&
+                    (!childrenSwitch || validChildrens)) alert('ga')
                 else {
                     Swal.fire(
                         'Formato incorrecto',
@@ -63,6 +80,8 @@ const ComparadorForm = ({ state }) => {
                 setValidPhone(user.phone !== '')
                 setValidEmail(user.email !== '')
                 setValidAge(user.age !== '')
+                setValidPartnerAge(user.partnerAge !== '')
+                setValidChildrens(user.childrens !== '')
                 Swal.fire(
                     'Intente nuevamente',
                     'Todos los campos son obligatorios',
@@ -85,6 +104,20 @@ const ComparadorForm = ({ state }) => {
         } else if (name === 'age') {
             setValidAge(
                 value > 17 &&
+                value - parseInt(value) === 0 &&
+                !/[a-zA-Z]/g.test(value) &&
+                value.indexOf('.') === -1
+            )
+        } else if (name === 'partnerAge') {
+            setValidPartnerAge(
+                value > 17 &&
+                value - parseInt(value) === 0 &&
+                !/[a-zA-Z]/g.test(value) &&
+                value.indexOf('.') === -1
+            )
+        } else if (name === 'childrens') {
+            setValidChildrens(
+                value > 0 &&
                 value - parseInt(value) === 0 &&
                 !/[a-zA-Z]/g.test(value) &&
                 value.indexOf('.') === -1
@@ -158,7 +191,6 @@ const ComparadorForm = ({ state }) => {
                             name='zone'
                             value={user.zone}
                             onChange={handleInputChange}
-                            inputProps={{ 'aria-label': 'Without label' }}
                             className={`customSelect ${classes.root}`}
                         >
                             <MenuItem value="CABA">CABA</MenuItem>
@@ -170,9 +202,87 @@ const ComparadorForm = ({ state }) => {
                             Campo obligatorio
                         </p>
                     </div>
-                </div>
-                <div className="subForm">
                     <div className='formItem'>
+                        <p>Situación laboral</p>
+                        <Select
+                            name='situation'
+                            value={user.situation}
+                            onChange={handleInputChange}
+                            className={`customSelect ${classes.root}`}
+                        >
+                            <MenuItem value="Monotributista">Monotributista</MenuItem>
+                            <MenuItem value="Relación en dependencia">Relación en dependencia</MenuItem>
+                            <MenuItem value="Particular">Particular</MenuItem>
+                        </Select>
+                        <p className='errorLabel'>
+                            Campo obligatorio
+                        </p>
+                    </div>
+                </div>
+                <div className='divisor'></div>
+                <div className="subForm">
+                    <div className="formItem switchItem">
+                        <p>Quiero incluir a mi pareja</p>
+                        <Switch
+                        onClick={() => {
+                            setPartnerSwitch(!partnerSwitch)
+                            setUser({
+                                ...user,
+                                partnerAge: ''
+                            })
+                        }}
+                        state={partnerSwitch}/>
+                    </div>
+                    <div className={
+                        partnerSwitch ? (
+                            validPartnerAge ? 'formItem' : 'formItem errorInput'
+                        ) : 'formItem disabled'}>
+                        <p>Edad de la pareja</p>
+                        <input
+                            disabled={!partnerSwitch}
+                            placeholder='Edad de la pareja'
+                            value={user.partnerAge}
+                            name='partnerAge'
+                            onChange={handleInputChange}
+                            type="number" />
+                        <p className={validPartnerAge ? 'errorLabel' : 'errorLabel visible'}>
+                            {user.partnerAge === '' ? 'Campo obligatorio' : 'Edad no válida'}
+                        </p>
+                    </div>
+                    <div className="formItem switchItem">
+                        <p>Quiero incluir a mis hijos/as</p>
+                        <Switch
+                        onClick={() => {
+                            setChildrenSwitch(!childrenSwitch)
+                            setUser({
+                                ...user,
+                                childrens: ''
+                            })
+                        }}
+                        state={childrenSwitch}/>
+                    </div>
+                    <div className={
+                        childrenSwitch ? (
+                            validChildrens ? 'formItem' : 'formItem errorInput'
+                        ) : 'formItem disabled'}>
+                        <p>Cantidad de hijos/as</p>
+                        <input
+                            disabled={!childrenSwitch}
+                            placeholder='Cantidad de hijo/as'
+                            value={user.childrens}
+                            name='childrens'
+                            onChange={handleInputChange}
+                            type="number" />
+                        <p className={validChildrens ? 'errorLabel' : 'errorLabel visible'}>
+                            {user.childrens === '' ? 'Campo obligatorio' : 'Cantidad no válida'}
+                        </p>
+                    </div>
+                    <div className="formItem">
+                        <ReCAPTCHA
+                        sitekey='6LfglikiAAAAACVegYIj0KN7-RCPvY4WgZXF9iaz'
+                        onChange={(e) => console.log(e)}/>
+                    </div>
+                    <div className='formItem formButton'>
                         <button className='primaryButton sendButton' onClick={verifyFields}>
                             {isLoading ? (
                                 <CircularProgress style={{ color: '#4E29C8', width: '25px', height: '25px' }} />

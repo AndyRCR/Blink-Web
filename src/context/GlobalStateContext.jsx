@@ -51,6 +51,9 @@ const GlobalStateContext = ({ children }) => {
   const [fileUploaded, setFileUploaded] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   
+  const [partnerSwitch, setPartnerSwitch] = useState(false)
+  const [childrenSwitch, setChildrenSwitch] = useState(false)
+
   const [postulant, setPostulant] = useState({
     name: '',
     phone: '',
@@ -64,7 +67,7 @@ const GlobalStateContext = ({ children }) => {
     email: '',
     phone: '',
     zone: 'CABA',
-    situation: '',
+    situation: 'Monotributista',
     partnerAge: '',
     childrens: ''
   })
@@ -139,7 +142,11 @@ const GlobalStateContext = ({ children }) => {
         setFileUploaded,
         isLoading,
         user,
-        setUser
+        setUser,
+        partnerSwitch,
+        setPartnerSwitch,
+        childrenSwitch,
+        setChildrenSwitch
       }}
     >
       {children}

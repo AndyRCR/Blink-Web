@@ -1,0 +1,34 @@
+.switch{
+    width: 60px;
+    height: 30px;
+    border-radius: 25px;
+    padding: 0 3px;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.switch.on{
+    background-color: var(--blink-main);
+}
+
+.switch.off{
+    background-color: #AEAEAE;
+}
+
+.button{
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    transition: .2s;
+    background-color: #fff;
+}
+
+.button.on{
+    margin-left: 50%;
+}
+
+.button.off{
+    margin-right: 50%;
+}
