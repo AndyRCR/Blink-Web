@@ -7,15 +7,15 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body{
-    overflow-x: hidden;
-    
-}
-
 :root{
     --blink-main: #4744CC;
     --button-main: #34E8CA;
     --gris-blink: #383838;
+}
+
+body{
+    overflow-x: hidden;
+    background-color: var(--blink-main);
 }
 
 ::-webkit-scrollbar-track{
@@ -26,6 +26,7 @@ body{
 ::-webkit-scrollbar{
 	width: 12px;
 	background-color: var(--blink-main);
+    border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb{
