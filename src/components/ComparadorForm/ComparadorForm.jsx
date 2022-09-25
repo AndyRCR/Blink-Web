@@ -51,6 +51,8 @@ const ComparadorForm = ({ state }) => {
     const[validPartnerAge, setValidPartnerAge] = useState(true)
     const[validChildrens, setValidChildrens] = useState(true)
 
+    const [captcha, setCaptcha] = useState(false)
+
     const verifyFields = () => {
         if (!isLoading) {
             if (
@@ -59,7 +61,8 @@ const ComparadorForm = ({ state }) => {
                 user.email !== '' &&
                 user.age !== '' &&
                 (!partnerSwitch || user.partnerAge !== '') &&
-                (!childrenSwitch || user.childrens !== '')
+                (!childrenSwitch || user.childrens !== '') &&
+                captcha
             ) {
                 if (validName &&
                     validPhone &&
@@ -277,10 +280,14 @@ const ComparadorForm = ({ state }) => {
                             {user.childrens === '' ? 'Campo obligatorio' : 'Cantidad no válida'}
                         </p>
                     </div>
-                    <div className="formItem">
+                    <div className="formItem" style={{textAlign: 'right'}}>
                         <ReCAPTCHA
+                        style={{display: 'inline-block'}}
                         sitekey='6LfglikiAAAAACVegYIj0KN7-RCPvY4WgZXF9iaz'
-                        onChange={(e) => console.log(e)}/>
+                        onChange={() => setCaptcha(!captcha)}/>
+                        <p className={captcha ? 'errorLabel' : 'errorLabel visible'}>
+                            Se necesita verificación
+                        </p>
                     </div>
                     <div className='formItem formButton'>
                         <button className='primaryButton sendButton' onClick={verifyFields}>
