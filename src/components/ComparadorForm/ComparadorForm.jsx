@@ -51,7 +51,8 @@ const ComparadorForm = ({ state }) => {
     const[validPartnerAge, setValidPartnerAge] = useState(true)
     const[validChildrens, setValidChildrens] = useState(true)
 
-    const [captcha, setCaptcha] = useState(false)
+    const [captchaState, setCaptchaState] = useState(-1)
+    const [captchaValue, setCaptchaValue] = useState(null)
 
     const verifyFields = () => {
         if (!isLoading) {
@@ -62,7 +63,7 @@ const ComparadorForm = ({ state }) => {
                 user.age !== '' &&
                 (!partnerSwitch || user.partnerAge !== '') &&
                 (!childrenSwitch || user.childrens !== '') &&
-                captcha
+                captchaState === 1
             ) {
                 if (validName &&
                     validPhone &&
@@ -85,6 +86,7 @@ const ComparadorForm = ({ state }) => {
                 setValidAge(user.age !== '')
                 setValidPartnerAge(user.partnerAge !== '')
                 setValidChildrens(user.childrens !== '')
+                setCaptchaState(captchaValue !== null)
                 Swal.fire(
                     'Intente nuevamente',
                     'Todos los campos son obligatorios',
@@ -280,12 +282,15 @@ const ComparadorForm = ({ state }) => {
                             {user.childrens === '' ? 'Campo obligatorio' : 'Cantidad no válida'}
                         </p>
                     </div>
-                    <div className="formItem" style={{textAlign: 'center'}}>
+                    <div className="formItem formCaptcha" style={{textAlign: 'center'}}>
                         <ReCAPTCHA
                         style={{display: 'inline-block'}}
                         sitekey='6LfglikiAAAAACVegYIj0KN7-RCPvY4WgZXF9iaz'
-                        onChange={() => setCaptcha(!captcha)}/>
-                        <p className={captcha ? 'errorLabel' : 'errorLabel visible'}>
+                        onChange={(e) => {
+                            setCaptchaValue(e)
+                            setCaptchaState(e === null ? 0 : 1)
+                        }}/>
+                        <p className={captchaState ? 'errorLabel' : 'errorLabel visible'}>
                             Se necesita verificación
                         </p>
                     </div>
