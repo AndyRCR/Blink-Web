@@ -11,7 +11,8 @@ const LogoCarousel = () => {
         {image: "https://blinkimages.s3.amazonaws.com/os/logo-doctored.png", os: "doctored"},
         {image: "https://blinkimages.s3.amazonaws.com/os/logo-premedic.png", os: "premedic"},
         {image: "https://blinkimages.s3.amazonaws.com/os/logo-galeno.png", os: "galeno"},
-        {image: "https://blinkimages.s3.amazonaws.com/os/logo-omint.png", os: "omint"}
+        {image: "https://blinkimages.s3.amazonaws.com/os/logo-omint.png", os: "omint"},
+        {image: "https://blinkimages.s3.amazonaws.com/os/logo-sarcor.png", os: "sarcor"}
     ]
 
     useEffect(() => {

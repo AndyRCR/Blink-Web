@@ -1,0 +1,107 @@
+.filters{
+    padding: 25px 120px;
+    background-color: #EBEBEB;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filters img{
+    width: 100px;
+}
+
+.filters .form{
+    display: flex;
+}
+
+.filters .filterItem{
+    margin-bottom: 25px;
+}
+
+.filters .filter.last{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.filters .filterItem.formButton{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.filters .filterItem p{
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 21px;
+    color: var(--gris-blink);
+    margin-bottom: 15px;
+}
+
+.filters .filterPrice{
+    display: flex;
+}
+
+.filters .divisor{
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.filters .filterItem .customSelect{
+    width: 250px;
+}
+
+.filters .filterItem input,
+.filters .filterItem .customSelect{
+    border: 1px solid var(--gris-blink);
+    height: 50px;
+    margin-top: 6px;
+    border-radius: 12px;
+    padding-left: 12px;
+    background-color: #fff;
+}
+
+.filters .filterItem input{
+    text-align: center;
+}
+
+.filters .filterItem input:focus{
+    border: 1px solid var(--blink-main);
+}
+
+.filters .filterItem input:active,
+.filters .filterItem input:focus,
+.filters .filterItem .customSelect:active,
+.filters .filterItem .customSelect:focus{
+    outline: none;
+}
+
+.MuiPaper-root ul li.MuiListSubheader-root:hover{
+    background-color: #fff !important;
+    user-select: none;
+}
+
+.MuiPaper-root ul li.MuiListSubheader-root{
+    font-weight: bold;
+}
+
+.Mui-checked{
+    color: var(--blink-main) !important;
+}
+
+.filters .filter.last .filterItem:nth-child(2){
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filters .sendButton{
+    width: 50%;
+    height: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

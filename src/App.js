@@ -7,6 +7,7 @@ function App() {
 
   useEffect(() => {
     AOS.init()
+    localStorage.setItem('parameters', 'no')
   }, [])
 
   return (

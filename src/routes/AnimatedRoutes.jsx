@@ -9,6 +9,7 @@ import PreguntasFrecuentes from '../views/PreguntasFrecuentes'
 import Layout from '../components/Layout'
 import { AnimatePresence } from 'framer-motion'
 import NotFound from '../views/NotFound'
+import Results from '../views/Results'
 
 const AnimatedRoutes = () => {
 
@@ -24,6 +25,7 @@ const AnimatedRoutes = () => {
               <Route exact path='/novedades' element={<Novedades />} />
               <Route exact path='/faq' element={<PreguntasFrecuentes />} />
               <Route exact path='/articuloTest' element={<ArticuloTest />} />
+              <Route exact path='/resultado' element={<Results/>} />
               <Route path='*' element={<NotFound/>} />
             </Route>
         </Routes>

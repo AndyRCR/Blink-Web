@@ -31,13 +31,18 @@
 
 .comparadorForm .formItem p{
     font-weight: 500;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 21px;
     color: var(--blink-main);
 }
 
 .comparadorForm .formItem.disabled p{
     color: var(--gris-blink);
+}
+
+.comparadorForm .formItem.disabled input{
+    background-color: rgb(241, 241, 241);
+    border: 1px solid #d1d1d1;
 }
 
 .comparadorForm .formItem input,

@@ -5,6 +5,7 @@ import { GlobalContext } from '../../context/GlobalStateContext'
 import { makeStyles } from '@mui/styles'
 import Switch from '../Switch/Switch'
 import ReCAPTCHA from 'react-google-recaptcha'
+import { useNavigate } from 'react-router-dom'
 import './ComparadorForm.css'
 
 const phoneRegex = /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/
@@ -36,12 +37,15 @@ const useStyles = makeStyles({
 const ComparadorForm = ({ state }) => {
 
     const classes = useStyles()
+
     const {
         user, setUser,
         isLoading,
         partnerSwitch, setPartnerSwitch,
         childrenSwitch, setChildrenSwitch
     } = useContext(GlobalContext)
+
+    const navigate = useNavigate()
 
     const [validName, setValidName] = useState(true)
     const [validPhone, setValidPhone] = useState(true)
@@ -70,7 +74,10 @@ const ComparadorForm = ({ state }) => {
                     validEmail &&
                     validAge &&
                     (!partnerSwitch || validPartnerAge) &&
-                    (!childrenSwitch || validChildrens)) alert('Redireccion')
+                    (!childrenSwitch || validChildrens)) {
+                    localStorage.setItem('parameters', 'yes')
+                    navigate('/resultado')
+                }
                 else {
                     Swal.fire(
                         'Formato incorrecto',
