@@ -280,7 +280,7 @@ const ComparadorForm = ({ state }) => {
                             {user.childrens === '' ? 'Campo obligatorio' : 'Cantidad no válida'}
                         </p>
                     </div>
-                    <div className="formItem" style={{textAlign: 'right'}}>
+                    <div className="formItem" style={{textAlign: 'center'}}>
                         <ReCAPTCHA
                         style={{display: 'inline-block'}}
                         sitekey='6LfglikiAAAAACVegYIj0KN7-RCPvY4WgZXF9iaz'
@@ -290,7 +290,7 @@ const ComparadorForm = ({ state }) => {
                         </p>
                     </div>
                     <div className='formItem formButton'>
-                        <button className='primaryButton sendButton' onClick={verifyFields}>
+                        <button className='primaryButton sendButton' onClick={verifyFields} style={{width: '100%'}}>
                             {isLoading ? (
                                 <CircularProgress style={{ color: '#4E29C8', width: '25px', height: '25px' }} />
                             ) : (
