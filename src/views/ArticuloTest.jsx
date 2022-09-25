@@ -6,7 +6,7 @@ const ArticuloTest = () => {
   return (
     <motion.div
     className='articuloTest'
-    style={{paddingTop: '105px'}}
+    style={{paddingTop: '105px', backgroundColor: 'white'}}
     initial={{opacity: 0}}
     animate={{opacity: 1}}
     exit={{opacity: 0}}>
