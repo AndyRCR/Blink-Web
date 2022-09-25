@@ -17,7 +17,7 @@
     background-color: #AEAEAE;
 }
 
-.button{
+.switch .button{
     width: 22px;
     height: 22px;
     border-radius: 25px;
@@ -25,10 +25,10 @@
     background-color: #fff;
 }
 
-.button.on{
+.switch .button.on{
     margin-left: 50%;
 }
 
-.button.off{
+.switch .button.off{
     margin-right: 50%;
 }
