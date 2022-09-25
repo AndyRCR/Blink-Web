@@ -70,7 +70,7 @@ const ComparadorForm = ({ state }) => {
                     validEmail &&
                     validAge &&
                     (!partnerSwitch || validPartnerAge) &&
-                    (!childrenSwitch || validChildrens)) alert('ga')
+                    (!childrenSwitch || validChildrens)) alert('Redireccion')
                 else {
                     Swal.fire(
                         'Formato incorrecto',
@@ -108,6 +108,7 @@ const ComparadorForm = ({ state }) => {
             setValidName(nameRegex.test(value) && value.match(nameRegex)?.join('').length > 1)
         } else if (name === 'age') {
             setValidAge(
+                value < 100 &&
                 value > 17 &&
                 value - parseInt(value) === 0 &&
                 !/[a-zA-Z]/g.test(value) &&
@@ -115,6 +116,7 @@ const ComparadorForm = ({ state }) => {
             )
         } else if (name === 'partnerAge') {
             setValidPartnerAge(
+                value < 100 &&
                 value > 17 &&
                 value - parseInt(value) === 0 &&
                 !/[a-zA-Z]/g.test(value) &&
@@ -122,6 +124,7 @@ const ComparadorForm = ({ state }) => {
             )
         } else if (name === 'childrens') {
             setValidChildrens(
+                value < 31 &&
                 value > 0 &&
                 value - parseInt(value) === 0 &&
                 !/[a-zA-Z]/g.test(value) &&
@@ -299,7 +302,7 @@ const ComparadorForm = ({ state }) => {
                             {isLoading ? (
                                 <CircularProgress style={{ color: '#4E29C8', width: '25px', height: '25px' }} />
                             ) : (
-                                <>Subir</>
+                                <>Comparar</>
                             )}
                         </button>
                     </div>
