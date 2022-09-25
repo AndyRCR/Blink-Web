@@ -10,6 +10,11 @@
     filter: grayscale(1);
 }
 
+.filters img:hover{
+    width: 100px;
+    filter: grayscale(0);
+}
+
 .filters .form{
     display: flex;
 }
