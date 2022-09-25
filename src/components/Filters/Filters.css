@@ -7,6 +7,7 @@
 
 .filters img{
     width: 100px;
+    filter: grayscale(1);
 }
 
 .filters .form{
