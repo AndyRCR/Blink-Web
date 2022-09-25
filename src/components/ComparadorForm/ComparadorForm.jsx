@@ -67,7 +67,7 @@ const ComparadorForm = ({ state }) => {
                 user.age !== '' &&
                 (!partnerSwitch || user.partnerAge !== '') &&
                 (!childrenSwitch || user.childrens !== '') &&
-                captchaState === 1
+                captchaState == 1
             ) {
                 if (validName &&
                     validPhone &&
@@ -87,12 +87,12 @@ const ComparadorForm = ({ state }) => {
                 }
             }
             else {
-                setValidName(user.name !== '')
-                setValidPhone(user.phone !== '')
-                setValidEmail(user.email !== '')
-                setValidAge(user.age !== '')
-                setValidPartnerAge(user.partnerAge !== '')
-                setValidChildrens(user.childrens !== '')
+                setValidName(user.name !== '' && validName)
+                setValidPhone(user.phone !== '' && validPhone)
+                setValidEmail(user.email !== '' && validEmail)
+                setValidAge(user.age !== '' && validAge)
+                setValidPartnerAge(partnerSwitch ? user.partnerAge !== '' : true)
+                setValidChildrens(childrenSwitch ? user.childrens !== '' : true)
                 setCaptchaState(captchaValue !== null)
                 Swal.fire(
                     'Intente nuevamente',
