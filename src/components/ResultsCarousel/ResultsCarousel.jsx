@@ -2,8 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons"
 import React, { useEffect, useState } from 'react'
 import ResultItem from '../ResultItem/ResultItem'
-import './ResultsCarousel.css'
 import { results } from './ExampleResults'
+import './ResultsCarousel.css'
 
 const ResultsCarousel = () => {
 
@@ -28,12 +28,14 @@ const ResultsCarousel = () => {
 
     setPosition(position < 1 ? position : position - 1)
     document.querySelectorAll('.carousel .result').forEach(item => {
-      item.style.transform = `translateX(-${pixelToInt(width) * position + 16 * position}px)`
+      item.style.transform = position <= 0
+      ? `translateX(${pixelToInt(width) * Math.abs(position) + 16 * Math.abs(position)}px)`
+      : `translateX(${pixelToInt(width) * position + 16 * position}px)`
     })
   }
 
   const moveLeft = () => {
-    if(position < 4){
+    if(position < results.length - 1){
       setResults(newResults.map(el => {
         return {
           ...el,
@@ -45,7 +47,7 @@ const ResultsCarousel = () => {
     const style = window.getComputedStyle(document.querySelector('.carousel .result'))
     const width = style.getPropertyValue('width')
 
-    setPosition(position > results.length - 5 ? position : position + 1)
+    setPosition(position > results.length - 2 ? position : position + 1)
     document.querySelectorAll('.carousel .result').forEach(item => {
       item.style.transform = `translateX(-${pixelToInt(width) * position + 16 * position}px)`
     })

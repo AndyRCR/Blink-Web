@@ -43,6 +43,7 @@
     color: #fff;
     transition: .3s;
     border-radius: 20px;
+    user-select: none;
 }
 
 .resultsCarousel .scrollButton:hover{

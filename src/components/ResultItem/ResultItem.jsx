@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faXmark } from "@fortawesome/free-solid-svg-icons"
 import React, { useContext } from 'react'
-import './ResultItem.css'
 import { Checkbox } from '@mui/material'
 import { useState } from 'react'
 import { GlobalContext } from '../../context/GlobalStateContext'
 import Swal from 'sweetalert2'
+import './ResultItem.css'
 
 const ResultItem = ({ res, i, pos }) => {
 
@@ -159,7 +159,8 @@ const ResultItem = ({ res, i, pos }) => {
             </div>
             <div className='pinBackground'>
                 <div className={checked ? 'pinFix visible' : 'pinFix'}>
-                    Plan fijado
+                    P<br/>l<br/>a<br/>n<br/><br/>
+                    f<br/>i<br/>j<br/>a<br/>d<br/>o
                 </div>
             </div>
         </>
