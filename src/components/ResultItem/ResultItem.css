@@ -1,0 +1,103 @@
+.resultsCarousel .result{
+    margin: 0 8px;
+    text-align: center;
+    transition: .3s;
+}
+
+.background1{
+    background-color: #DADAF5;
+    border-radius: 16px;
+}
+
+.background2{
+    background-color: #D7D7D7;
+    border-radius: 16px;
+}
+
+/*Header*/
+.resultsCarousel .check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.resultsCarousel .header{
+    height: 80px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center ;
+}
+
+.resultsCarousel .result img{
+    width: 200px;
+}
+
+/*Info*/
+.resultsCarousel .result .info{
+    border-bottom: 1px solid var(--gris-blink);
+    padding-bottom: 20px;
+}
+
+.resultsCarousel .info p{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 114.5%;
+    text-decoration: line-through;
+}
+
+/*Items*/
+.resultsCarousel .benefitItem{
+    border-bottom: 1px solid var(--gris-blink);
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    color: var(--blink-main);
+}
+
+.resultsCarousel .benefitItem:nth-child(18){
+    border-bottom: none;
+}
+
+/*Pinned*/
+.resultsCarousel .result.pinned{
+    position: absolute;
+    transform: translateX(0) !important;
+    z-index: 20;
+}
+
+.pinFix{
+    width: 0;
+    display: none;
+}
+
+.pinFix.visible{
+    width: 220px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 8px;
+    z-index: 0;
+    border: 2px dashed var(--blink-main);
+    background-color: rgba(71, 68, 204, 0.1);
+    border-radius: 16px;
+    transition: .3s;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/*Button*/
+.resultsCarousel .button{
+    padding: 15px 0;
+    height: 100px;
+}
+
+.resultsCarousel .primaryButton{
+    padding: 15px;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 28px;
+}

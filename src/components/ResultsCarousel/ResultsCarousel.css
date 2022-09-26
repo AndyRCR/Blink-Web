@@ -1,8 +1,61 @@
 .resultsCarousel{
-    height: 500px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border: 2px dashed var(--blink-main);
+    justify-content: flex-start;
     background-color: #fff;
 }
+
+.resultsCarousel h3{
+    margin: 30px 0;
+}
+
+.resultsCarousel h2{
+    font-weight: 700;
+    font-size: 33px;
+    line-height: 114.5%;
+    color: var(--blink-main);
+    margin: 5px 0;
+}
+
+.resultsCarousel span{
+    color: var(--blink-main);
+}
+
+.resultsCarousel .carouselContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.resultsCarousel .carousel{
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+/*Button scroll*/
+.resultsCarousel .scrollButton{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: #A3A1E5;
+    margin: 0 8px;
+    color: #fff;
+    transition: .3s;
+    border-radius: 20px;
+}
+
+.resultsCarousel .scrollButton:hover{
+    transform: scale(0.98);
+    background-color: #807eb8;
+}
+
+.resultsCarousel .scrollIcon{
+    margin: 25px;
+    font-size: 25px;
+}
+
+/*Pined result*/
+/* .resultsCarousel .result:nth-child(1){
+    position: absolute;
+} */

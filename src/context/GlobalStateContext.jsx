@@ -3,6 +3,7 @@ import axios from 'axios'
 import emailjs from 'emailjs-com'
 import $ from 'jquery'
 import Swal from 'sweetalert2'
+import { results as resultados } from "../components/ResultsCarousel/ExampleResults";
 
 export const GlobalContext = createContext()
 
@@ -16,41 +17,48 @@ const images = [
 ]
 
 const GlobalStateContext = ({ children }) => {
-  
+
   //Mail service init
   emailjs.init("LgMjYTa-xV42Eb5OY")
+
+  /**
+   * Carousel
+   */
+  const [results, setResults] = useState(resultados.map(res => { return { ...res, pinned: false } }))
+  const [itemCheckeds, setItemCheckeds] = useState(0)
+  const [position, setPosition] = useState(0)
 
   /**
    * Blogs
    */
   const [articles, setArticles] = useState([
-    {title: 'Articulo novedoso 1', starred: false, image: images[0]},
-    {title: 'Articulo novedoso 2', starred: false, image: images[1]},
-    {title: 'Articulo novedoso 3', starred: false, image: images[2]},
-    {title: 'Articulo novedoso 4', starred: true, image: images[3]},
-    {title: 'Articulo novedoso 5', starred: false, image: images[4]},
-    {title: 'Articulo novedoso 6', starred: false, image: images[5]},
-    {title: 'Articulo novedoso 7', starred: false, image: images[2]},
-    {title: 'Articulo novedoso 8', starred: false, image: images[4]},
-    {title: 'Articulo novedoso 9', starred: true, image: images[5]},
-    {title: 'Articulo novedoso 10', starred: false, image: images[3]},
-    {title: 'Articulo novedoso 11', starred: false, image: images[0]},
-    {title: 'Articulo novedoso 12', starred: false, image: images[1]},
-    {title: 'Articulo novedoso 13', starred: false, image: images[2]},
-    {title: 'Articulo novedoso 14', starred: false, image: images[5]},
-    {title: 'Articulo novedoso 15', starred: false, image: images[0]},
-    {title: 'Articulo novedoso 16', starred: true, image: images[4]},
-    {title: 'Articulo novedoso 17', starred: false, image: images[1]},
-    {title: 'Articulo novedoso 18', starred: false, image: images[3]}
+    { title: 'Articulo novedoso 1', starred: false, image: images[0] },
+    { title: 'Articulo novedoso 2', starred: false, image: images[1] },
+    { title: 'Articulo novedoso 3', starred: false, image: images[2] },
+    { title: 'Articulo novedoso 4', starred: true, image: images[3] },
+    { title: 'Articulo novedoso 5', starred: false, image: images[4] },
+    { title: 'Articulo novedoso 6', starred: false, image: images[5] },
+    { title: 'Articulo novedoso 7', starred: false, image: images[2] },
+    { title: 'Articulo novedoso 8', starred: false, image: images[4] },
+    { title: 'Articulo novedoso 9', starred: true, image: images[5] },
+    { title: 'Articulo novedoso 10', starred: false, image: images[3] },
+    { title: 'Articulo novedoso 11', starred: false, image: images[0] },
+    { title: 'Articulo novedoso 12', starred: false, image: images[1] },
+    { title: 'Articulo novedoso 13', starred: false, image: images[2] },
+    { title: 'Articulo novedoso 14', starred: false, image: images[5] },
+    { title: 'Articulo novedoso 15', starred: false, image: images[0] },
+    { title: 'Articulo novedoso 16', starred: true, image: images[4] },
+    { title: 'Articulo novedoso 17', starred: false, image: images[1] },
+    { title: 'Articulo novedoso 18', starred: false, image: images[3] }
   ])
-  
+
   /**
    * Form states/functions
    */
   const [selectedFile, setSelectedFile] = useState(null)
   const [fileUploaded, setFileUploaded] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  
+
   const [partnerSwitch, setPartnerSwitch] = useState(false)
   const [childrenSwitch, setChildrenSwitch] = useState(false)
 
@@ -72,7 +80,7 @@ const GlobalStateContext = ({ children }) => {
     childrens: ''
   })
 
-  const clearPostulantForm = () =>{
+  const clearPostulantForm = () => {
     setPostulant({
       name: '',
       phone: '',
@@ -85,47 +93,47 @@ const GlobalStateContext = ({ children }) => {
   }
 
   const uploadFile = async () => {
-      try {
-          setIsLoading(true)
+    try {
+      setIsLoading(true)
 
-          let formData = new FormData()
+      let formData = new FormData()
 
-          formData.append('file', selectedFile)
+      formData.append('file', selectedFile)
 
-          axios.post("https://blink-files.onrender.com/uploadfile", formData, { headers: { 'Content-Type': 'multipart/form-data' } })
-              .then( res => {
-                emailjs.send('service_94nx1uu', 'template_r8rpyj8', {
-                  ...postulant,
-                  path: res.data.Location
-                })
-                .then(() => {
-                  Swal.fire(
-                    'Gracias por su interés en Blink!',
-                    'Lo contactaremos lo más pronto posible',
-                    'success'
-                  )
-                  clearPostulantForm()
-                })
-                .catch(err => {
-                  Swal.fire(
-                    'Error 😕',
-                    'Ocurrió un error en el servidor, intente nuevamente mas tarde',
-                    'error'
-                  )
-                })
-                .finally(() => setIsLoading(false))
-              })
-              .catch(err => {
-                Swal.fire(
-                  'Error 😕',
-                  'Ocurrió un error en el servidor, intente nuevamente mas tarde',
-                  'error'
-                )
-              })
+      axios.post("https://blink-files.onrender.com/uploadfile", formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+        .then(res => {
+          emailjs.send('service_94nx1uu', 'template_r8rpyj8', {
+            ...postulant,
+            path: res.data.Location
+          })
+            .then(() => {
+              Swal.fire(
+                'Gracias por su interés en Blink!',
+                'Lo contactaremos lo más pronto posible',
+                'success'
+              )
+              clearPostulantForm()
+            })
+            .catch(err => {
+              Swal.fire(
+                'Error 😕',
+                'Ocurrió un error en el servidor, intente nuevamente mas tarde',
+                'error'
+              )
+            })
+            .finally(() => setIsLoading(false))
+        })
+        .catch(err => {
+          Swal.fire(
+            'Error 😕',
+            'Ocurrió un error en el servidor, intente nuevamente mas tarde',
+            'error'
+          )
+        })
 
-      } catch (error) {
-          console.log(error)
-      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -146,7 +154,13 @@ const GlobalStateContext = ({ children }) => {
         partnerSwitch,
         setPartnerSwitch,
         childrenSwitch,
-        setChildrenSwitch
+        setChildrenSwitch,
+        itemCheckeds,
+        setItemCheckeds,
+        results,
+        setResults,
+        position,
+        setPosition
       }}
     >
       {children}
