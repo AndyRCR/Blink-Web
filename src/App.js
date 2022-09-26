@@ -9,16 +9,10 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(true)
 
-  const handleLoading = () => {
-    setTimeout(() => setIsLoading(false), 1800)
-  }
-
   useEffect(() => {
     AOS.init()
-
-    window.addEventListener('load', handleLoading)
-    return () => window.removeEventListener('load', handleLoading)
-  }, [])
+    setTimeout(() => setIsLoading(false), 1800)
+  }, [isLoading])
 
   return isLoading ? <Loader/> : (
     <GlobalStateContext>
