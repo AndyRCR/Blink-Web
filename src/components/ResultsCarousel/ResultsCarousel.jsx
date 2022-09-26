@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import ResultItem from '../ResultItem/ResultItem'
 import { results } from './ExampleResults'
 import './ResultsCarousel.css'
+import Benefits from '../Benefits/Benefits'
 
 const ResultsCarousel = () => {
 
@@ -71,8 +72,7 @@ const ResultsCarousel = () => {
 
   return (
     <div className='resultsCarousel'>
-      <h3><span>{results.length}</span> resultados encontrados</h3>
-      <div className='carouselContainer'>
+        <Benefits/>
         <div className='scrollButton' onClick={moveRight}>
           <FontAwesomeIcon className='scrollIcon' icon={faAngleLeft} />
         </div>
@@ -86,7 +86,6 @@ const ResultsCarousel = () => {
         <div className='scrollButton' onClick={moveLeft}>
           <FontAwesomeIcon className='scrollIcon' icon={faAngleRight} />
         </div>
-      </div>
     </div>
   )
 }
