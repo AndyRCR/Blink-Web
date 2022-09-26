@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faXmark } from "@fortawesome/free-solid-svg-icons"
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Checkbox } from '@mui/material'
 import { useState } from 'react'
 import { GlobalContext } from '../../context/GlobalStateContext'
@@ -40,8 +40,8 @@ const ResultItem = ({ res, i, pos }) => {
         }
     }
 
-    // useEffect(() => {
-    // }, [pos])
+    useEffect(() => {
+    }, [checked])
 
     return (
         <>

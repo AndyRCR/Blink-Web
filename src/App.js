@@ -2,14 +2,25 @@ import './App.css'
 import GlobalStateContext from './context/GlobalStateContext'
 import Rutas from './routes/Rutas'
 import AOS from 'aos'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import Loader from './components/Loader/Loader'
+
 function App() {
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  const handleLoading = () => {
+    setTimeout(() => setIsLoading(false), 2000)
+  }
 
   useEffect(() => {
     AOS.init()
+
+    window.addEventListener('load', handleLoading)
+    return () => window.removeEventListener('load', handleLoading)
   }, [])
 
-  return (
+  return isLoading ? <Loader/> : (
     <GlobalStateContext>
       <Rutas/>
     </GlobalStateContext>

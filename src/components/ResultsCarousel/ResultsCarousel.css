@@ -45,11 +45,6 @@
 }
 
 .resultsCarousel .scrollIcon{
-    margin: 25px;
+    margin: 15px;
     font-size: 25px;
 }
-
-/*Pined result*/
-/* .resultsCarousel .result:nth-child(1){
-    position: absolute;
-} */
