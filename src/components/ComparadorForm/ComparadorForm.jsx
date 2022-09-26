@@ -108,7 +108,8 @@ const ComparadorForm = ({ state }) => {
 
         if (name === 'phone') {
             let auxPhone = value.match(/(\d+)/g)?.join('')
-            setValidPhone(phoneRegex.test(auxPhone) && !/[a-zA-Z]/g.test(value))
+            setValidPhone(true)
+            // setValidPhone(phoneRegex.test(auxPhone) && !/[a-zA-Z]/g.test(value))
         } else if (name === 'email') {
             setValidEmail(emailRegex.test(value.toLowerCase()))
         } else if (name === 'name') {
