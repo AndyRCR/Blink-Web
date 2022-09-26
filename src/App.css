@@ -16,7 +16,7 @@
 
 body{
     overflow-x: hidden;
-    background: linear-gradient(0deg, #A99BFF 0%, rgba(124, 107, 237, 0.985381) 28.24%, #6966E9 61.57%, #4744CC 100%);
+    background-color: linear-gradient(0deg, #A99BFF 0%, rgba(124, 107, 237, 0.985381) 28.24%, #6966E9 61.57%, #4744CC 100%);
 }
 
 ::-webkit-scrollbar-track{
