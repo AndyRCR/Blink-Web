@@ -10,23 +10,35 @@ const ResponsiveNavbar = () => {
   return (
     <div className={isDisplayed ? 'responsiveNavbar visible' : 'responsiveNavbar hidden'}>
       <NavLink
-        onClick={() => setIsDisplayed(false)}
+        onClick={() => {
+          setIsDisplayed(false)
+          document.querySelector('body').style.overflow = isDisplayed ? 'visible' : 'hidden'
+        }}
         className={({ isActive }) => isActive ? 'activeNavLink' : 'navLink'}
         to={'/comparador'}>Comparador online</NavLink>
       <NavLink
-        onClick={() => setIsDisplayed(false)}
+        onClick={() => {
+          setIsDisplayed(false)
+          document.querySelector('body').style.overflow = isDisplayed ? 'visible' : 'hidden'
+        }}
         className={({ isActive }) => isActive ? 'activeNavLink' : 'navLink'}
         to={'/nosotros'}>
         Sobre BLINK
       </NavLink>
       <NavLink
-        onClick={() => setIsDisplayed(false)}
+        onClick={() => {
+          setIsDisplayed(false)
+          document.querySelector('body').style.overflow = isDisplayed ? 'visible' : 'hidden'
+        }}
         className={({ isActive }) => isActive ? 'activeNavLink' : 'navLink'}
         to={'/novedades'}>
         Novedades
       </NavLink>
       <NavLink
-        onClick={() => setIsDisplayed(false)}
+        onClick={() => {
+          setIsDisplayed(false)
+          document.querySelector('body').style.overflow = isDisplayed ? 'visible' : 'hidden'
+        }}
         className={({ isActive }) => isActive ? 'activeNavLink' : 'navLink'}
         to={'/faq'}>
         Preguntas frecuentes
