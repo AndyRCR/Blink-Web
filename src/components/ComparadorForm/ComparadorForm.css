@@ -11,6 +11,8 @@
 
 .comparadorForm .form{
     display: flex;
+    width: 50%;
+    /* padding: 0 100px; */
 }
 
 .comparadorForm .subForm{
@@ -47,7 +49,8 @@
 
 .comparadorForm .formItem input,
 .comparadorForm .formItem .customSelect{
-    width: 350px;
+    min-width: 350px;
+    width: 100%;
     border: 1px solid var(--gris-blink);
     height: 50px;
     margin-top: 6px;
@@ -103,6 +106,7 @@
 }
 
 .comparadorForm .sendButton{
+    width: 100%;
     height: 50px;
     font-weight: 700;
     font-size: 15px;
@@ -131,4 +135,81 @@
     font-size: 15px;
     line-height: 22px;
     color: var(--gris-blink);
+}
+
+@media(max-width: 1440px){
+    .comparadorForm .form{
+        width: 80%;
+    }
+}
+
+@media(max-width: 1280px){
+    .comparadorForm .form{
+        width: 90%;
+    }
+}
+
+@media(max-width: 1000px){
+    .comparadorForm .subForm {
+        margin: 0 20px;
+    }
+}
+
+@media(max-width: 900px){
+    .comparadorForm .formItem input, .comparadorForm .formItem .customSelect {
+        min-width: 200px;
+    }
+}
+
+@media(max-width: 780px){
+    .comparadorForm .form{
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .comparadorForm .subForm{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 30px;
+    }
+
+    .comparadorForm .divisor{
+        width: 100%;
+        border-bottom: 1px solid rgb(207, 207, 207);
+        margin: 20px 0;
+    }
+
+    .comparadorForm .formCaptcha,
+    .comparadorForm .formButton{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .comparadorForm .formItem.formButton{
+        width: 100%;
+        justify-content: center;
+    }
+
+    .comparadorForm .sendButton{
+        width: 50%;
+    }
+
+    .comparadorForm .formItem p {
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 540px){
+    .comparadorForm .subForm{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .comparadorForm .form {
+        overflow-x: hidden;
+        width: 70%;
+    }
 }

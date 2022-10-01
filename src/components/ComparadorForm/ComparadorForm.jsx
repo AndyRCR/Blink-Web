@@ -8,7 +8,7 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import { useNavigate } from 'react-router-dom'
 import './ComparadorForm.css'
 
-const phoneRegex = /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/
+// const phoneRegex = /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 const nameRegex = /^[a-zA-Z\s]*$/
 
@@ -107,7 +107,7 @@ const ComparadorForm = ({ state }) => {
         const { name, value } = e.target
 
         if (name === 'phone') {
-            let auxPhone = value.match(/(\d+)/g)?.join('')
+            // let auxPhone = value.match(/(\d+)/g)?.join('')
             setValidPhone(true)
             // setValidPhone(phoneRegex.test(auxPhone) && !/[a-zA-Z]/g.test(value))
         } else if (name === 'email') {
@@ -306,7 +306,7 @@ const ComparadorForm = ({ state }) => {
                         </p>
                     </div>
                     <div className='formItem formButton'>
-                        <button className='primaryButton sendButton' onClick={verifyFields} style={{width: '100%'}}>
+                        <button className='primaryButton sendButton' onClick={verifyFields}>
                             {isLoading ? (
                                 <CircularProgress style={{ color: '#4E29C8', width: '25px', height: '25px' }} />
                             ) : (
