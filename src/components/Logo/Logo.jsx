@@ -5,7 +5,7 @@ import './Logo.css'
 
 const Logo = () => {
 
-  const {setIsDisplayed, isDisplayed} = useContext(GlobalContext)
+  const {setIsDisplayed} = useContext(GlobalContext)
 
   return (
     <div className='logo'>
