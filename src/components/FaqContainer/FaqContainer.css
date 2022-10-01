@@ -26,16 +26,16 @@
 }
 
 .css-15v22id-MuiAccordionDetails-root {
-    text-align: justify;
+    text-align: justify !important;
 }
 
 @media(max-width: 950px){
     .css-15v22id-MuiAccordionDetails-root {
-        font-size: 13px;
+        font-size: 13px !important;
     }
 
     .css-o4b71y-MuiAccordionSummary-content h3{
-        font-size: 16px;
+        font-size: 16px !important;
     }
 }
 
@@ -53,10 +53,10 @@
 
 @media(max-width: 450px){
     .css-15v22id-MuiAccordionDetails-root {
-        font-size: 10px;
+        font-size: 10px !important;
     }
 
     .css-o4b71y-MuiAccordionSummary-content h3{
-        font-size: 13px;
+        font-size: 13px !important;
     }
 }
