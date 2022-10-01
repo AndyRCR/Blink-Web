@@ -8,7 +8,8 @@
 
 .articleTestContainer .articleContent .articleImage{
     text-align: center;
-    min-height: 400px;
+    /* min-height: 400px; */
+    height: fit-content;
 }
 
 .articleTestContainer .articleContent .articleImage img{
@@ -26,5 +27,96 @@
 }
 
 .articleTestContainer .articleContent .articleText{
-    margin: 70px 0;
+    margin: 30px 0;
+}
+
+@media(max-width: 1280px){
+    .articleTestContainer .articleContent {
+        padding: 120px 80px 50px;
+    }
+}
+
+@media(max-width: 1100px){
+    .articleTestContainer .articleContent h1 {
+        font-size: 45px;
+    }
+
+    .articleTestContainer .articleContent {
+        padding: 120px 70px 50px;
+    }
+}
+
+@media(max-width: 950px){
+    .articleTestContainer .articleContent h1 {
+        text-align: center;
+    }
+
+    .articleTestContainer .articleImage img{
+        width: 450px;
+    }
+}
+
+@media(max-width: 870px){
+    .articleTestContainer .articleContent {
+        padding: 20px 45px 50px;
+    }
+}
+
+@media(max-width: 815px){
+    .articleTestContainer .articleContent h1 {
+        font-size: 30px;
+    }
+
+    .articleTestContainer .articleImage img{
+        width: 350px;
+    }
+
+    .articleTestContainer .articleContent .articleText {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 520px){
+    .articleTestContainer .articleContent p{
+        font-size: 12px;
+    }
+
+    .articleTestContainer .articleImage img{
+        width: 280px;
+    }
+
+    .articleTestContainer .articleContent h1 {
+        font-size: 24px;
+    }
+
+    .articleTestContainer .articleContent .articleText {
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 450px){
+    .articleTestContainer .articleImage img{
+        width: 230px;
+    }
+
+    .articleTestContainer .articleContent h1 {
+        font-size: 20px;
+        margin: 20px 0;
+    }
+}
+
+@media(max-width: 370px){
+    .articleTestContainer .articleContent h1 {
+        font-size: 16px;
+    }
+
+    .articleTestContainer .articleContent .articleText {
+        font-size: 10px;
+    }
+}
+
+@media(max-width: 340px){
+    .articleTestContainer .articleImage img{
+        width: 100%;
+    }
 }
