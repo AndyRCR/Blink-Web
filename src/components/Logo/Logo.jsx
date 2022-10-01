@@ -11,7 +11,7 @@ const Logo = () => {
     <div className='logo'>
       <Link
       onClick={() => {
-        document.querySelector('body').style.overflow = isDisplayed ? 'visible' : 'hidden'
+        document.querySelector('body').style.overflow = 'visible'
         setIsDisplayed(false)
       }}
       to={'/'}>blink</Link>
