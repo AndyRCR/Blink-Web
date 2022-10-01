@@ -2,9 +2,7 @@
   --marquee-width: 100%;
   --marquee-height: 20vh;
   --marquee-elements-displayed: 5;
-  --marquee-element-width: calc(
-    var(--marquee-width) / var(--marquee-elements-displayed)
-  );
+  --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
   --marquee-animation-duration: 80s;
 }
 
@@ -17,7 +15,7 @@
   margin: 40px 0;
 }
 
-.homeContainer .logoCarousel{
+.homeContainer .logoCarousel {
   transform: translateY(-50px);
   margin: 0;
 }
@@ -31,14 +29,17 @@
   content: "";
   z-index: 1;
 }
+
 .logoCarousel:before {
   left: 0;
   background: linear-gradient(to right, #fff 0%, transparent 100%);
 }
+
 .logoCarousel:after {
   right: 0;
   background: linear-gradient(to left, #fff 0%, transparent 100%);
 }
+
 .logoCarouselContent {
   list-style: none;
   /* height: 100%; */
@@ -50,12 +51,12 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
-    transform: translateX(
-      calc(-1 * var(--marquee-element-width) * var(--marquee-elements))
-    );
+    transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
   }
 }
+
 .logoCarouselContent li {
   padding: 0 30px;
   display: flex;
@@ -65,7 +66,8 @@
   flex-shrink: 0;
   width: var(--marquee-element-width);
   max-height: 100%;
-  font-size: calc(var(--marquee-height) * 3 / 4); /* 5rem; */
+  font-size: calc(var(--marquee-height) * 3 / 4);
+  /* 5rem; */
   white-space: nowrap;
 }
 
@@ -81,15 +83,30 @@
   filter: none;
 }
 
-@media (max-width: 600px) {
-  html {
-    font-size: 12px;
+@media (max-width: 1280px) {
+  .homeContainer .logoCarousel {
+    transform: translateY(0);
+    margin-bottom: 30px;
   }
+}
+
+@media (max-width: 950px) {
+  .homeContainer .logoCarousel {
+    margin: 30px 0;
+  }
+
+  :root {
+    --marquee-elements-displayed: 3;
+  }
+}
+
+@media (max-width: 600px) {
   :root {
     --marquee-width: 100vw;
     --marquee-height: 16vh;
-    --marquee-elements-displayed: 3;
+    --marquee-elements-displayed: 2;
   }
+
   .logoCarousel:before,
   .logoCarousel:after {
     width: 5rem;

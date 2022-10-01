@@ -46,3 +46,99 @@
 .steps button:hover a{
     color: #fff;
 }
+
+@media (max-width: 1280px){
+    .steps .title {
+        font-size: 35px;
+    }
+
+    .steps .content {
+        font-size: 17px;
+    }
+
+    .stepItem .description {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 1100px){
+
+}
+
+@media (max-width: 950px){
+    .steps {
+        padding: 320px 0 40px;
+        background: linear-gradient(#fff 50%, rgba(75,72,208,1) 50%);
+    }
+
+    .stepItem img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .stepItem .stepCircle {
+        width: 50px;
+        height: 50px;
+        font-size: 35px;
+    }
+
+    .stepItem .description {
+        font-size: 15px;
+    }
+
+    .steps .itemContainer{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps .stepItem{
+        width: 80%;
+        margin: auto;
+    }
+
+    .steps .stepItem:nth-child(3){
+        grid-column-start: 1;
+        grid-column-end: 3;
+        width: 40%;
+    }
+}
+
+@media (max-width: 870px){
+    .steps .title {
+        font-size: 30px;
+    }
+
+    .steps .content {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 560px){
+    .steps .title {
+        font-size: 22px;
+    }
+
+    .steps .content {
+        font-size: 12px;
+    }
+
+    .stepItem .description {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 420px){
+    .steps .itemContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .steps .stepItem{
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .steps .stepItem:nth-child(3){
+        width: 100%;
+    }
+}
