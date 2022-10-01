@@ -102,3 +102,82 @@
 .articleItem .secondaryButton a{
     padding: 10px 16px;
 }
+
+@media(max-width: 1280px){
+}
+
+@media(max-width: 1100px){
+    .articlesList .articles {
+        padding: 40px 0;
+    }
+
+    .articleItem .info button {
+        width: 100%;
+    }
+
+    .articleItem p {
+        font-size: 13px;
+    }
+
+    .articleItem h4 {
+        text-align: center;
+    }
+}
+
+@media(max-width: 950px){
+    .articlesList h3 {
+        font-size: 25px;
+    }
+
+    .articlesList .articlesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 870px){
+
+}
+
+@media(max-width: 815px){
+    .articlesList .filter {
+        flex-direction: column;
+    }
+
+    .articlesList h3 {
+        margin: 20px 0;
+        text-align: center;
+    }
+}
+
+@media(max-width: 650px){
+    .articlesList .articles {
+        padding: 40px;
+    }
+
+    .articlesList .articlesGrid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media(max-width: 520px){
+
+}
+
+@media(max-width: 500px){
+}
+
+@media(max-width: 450px){
+    .articlesList .articles {
+        padding: 0;
+        margin-top: 30px;
+    }
+}
+
+@media(max-width: 410px){
+}
+
+@media(max-width: 370px){
+}
+
+@media(max-width: 340px){
+}

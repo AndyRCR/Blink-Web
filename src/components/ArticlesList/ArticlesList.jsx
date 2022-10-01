@@ -54,7 +54,7 @@ const ArticlesList = () => {
   return (
     <div className='articlesList'>
       <div className='filter'>
-        <h3>Conocé más novedades:</h3>
+        <h3>Conocé más novedades</h3>
         <CssInput
         className='cssInput'
         id="outlined-adornment-weight"
