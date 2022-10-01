@@ -212,4 +212,8 @@
         overflow-x: hidden;
         width: 70%;
     }
+
+    .comparadorForm .sendButton{
+        width: 100%;
+    }
 }
