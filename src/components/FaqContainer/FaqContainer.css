@@ -24,3 +24,39 @@
     align-content: space-between;
     padding: 200px 120px 70px;
 }
+
+.css-15v22id-MuiAccordionDetails-root {
+    text-align: justify;
+}
+
+@media(max-width: 950px){
+    .css-15v22id-MuiAccordionDetails-root {
+        font-size: 13px;
+    }
+
+    .css-o4b71y-MuiAccordionSummary-content h3{
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 870px){
+    .faqSection .faqQuesContainer{
+        padding: 200px 40px 70px;
+    }
+
+    .faqSection h1 {
+        font-size: 25px;
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+
+@media(max-width: 450px){
+    .css-15v22id-MuiAccordionDetails-root {
+        font-size: 10px;
+    }
+
+    .css-o4b71y-MuiAccordionSummary-content h3{
+        font-size: 13px;
+    }
+}
