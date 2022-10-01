@@ -32,7 +32,7 @@ const Navbar = () => {
         <div
         onClick={() => {
           setIsDisplayed(!isDisplayed)
-          document.querySelector('body').style.overflow = isDisplayed ? 'visible' : 'hidden'
+          document.querySelector('body').style.overflow = 'visible'
         }}
         className={isDisplayed ? 'responsiveNavbarButton pressed' : 'responsiveNavbarButton unpressed'}
         style={{display: showMenu ? 'flex' : 'none'}}>
