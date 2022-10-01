@@ -22,6 +22,11 @@ const GlobalStateContext = ({ children }) => {
   emailjs.init("LgMjYTa-xV42Eb5OY")
 
   /**
+   * Responsive navbar
+   */
+  const [isDisplayed, setIsDisplayed] = useState(false)
+
+  /**
    * Carousel
    */
   const [results, setResults] = useState(resultados.map(res => { return { ...res, pinned: false } }))
@@ -160,7 +165,9 @@ const GlobalStateContext = ({ children }) => {
         results,
         setResults,
         position,
-        setPosition
+        setPosition,
+        isDisplayed,
+        setIsDisplayed
       }}
     >
       {children}

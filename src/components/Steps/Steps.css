@@ -127,7 +127,11 @@
     }
 }
 
-@media (max-width: 420px){
+@media (max-width: 520px){
+    .steps{
+        padding: 320px 45px 40px;
+    }
+
     .steps .itemContainer{
         display: flex;
         flex-direction: column;

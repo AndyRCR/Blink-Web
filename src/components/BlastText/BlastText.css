@@ -52,10 +52,6 @@
     .principal h1{
         text-align: center;
     }
-
-    .principal .blast {
-        line-height: 70%;
-    }
 }
 
 @media (max-width: 520px){
@@ -64,7 +60,41 @@
         font-size: 40px;
     }
 
+    .principal .text-zone {
+        margin-top: 20px;
+    }
+
+    .homeContainer .principal .blast-root{
+        line-height: 40px;
+    }
+}
+
+@media (max-width: 380px){
+    .homeContainer .principal .blast,
     .principal .blast {
-        line-height: 20px;
+        font-size: 35px;
+    }
+
+    .principal .blast {
+        line-height: 100%;
+    }
+
+    .principal .text-zone {
+        margin-top: 20px;
+    }
+
+    .homeContainer .principal .blast-root{
+        line-height: 35px;
+    }
+}
+
+@media (max-width: 350px){
+    .homeContainer .principal .blast,
+    .principal .blast {
+        font-size: 30px;
+    }
+
+    .homeContainer .principal .blast-root{
+        line-height: 30px;
     }
 }

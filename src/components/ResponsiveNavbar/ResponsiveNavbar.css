@@ -1,0 +1,40 @@
+.responsiveNavbar{
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 80px;
+    width: 100%;
+    background: rgba(71, 68, 204, 0.8);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    z-index: 60;
+    transition: .5s;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.responsiveNavbar.hidden{
+    transform: translateY(-100vh);
+}
+
+.responsiveNavbar.visible{
+    transform: translateY(0);
+}
+
+.responsiveNavbar .activeNavLink{
+    color: var(--button-main);
+}
+
+.responsiveNavbar .navLink{
+    color: #fff;
+}
+
+.responsiveNavbar a{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}

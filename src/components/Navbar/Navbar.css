@@ -9,7 +9,7 @@
     color: #fff;
     position: fixed;
     z-index: 60;
-    transition: .5s;
+    /* transition: .5s; */
 }
 
 .navbar.transparent{
@@ -40,6 +40,42 @@
     color: #fff;
 }
 
+.navbar .responsiveNavbarIcon{
+    /* display: none; */
+    font-size: 20px;
+    /* padding-right: 20px; */
+    transition: .3s;
+}
+
+.navbar .responsiveNavbarIcon.pressed{
+    transform: rotate(180deg);
+}
+
+.navbar .responsiveNavbarButton{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.navbar .responsiveNavbarButton.unpressed{
+    background: linear-gradient(145deg, #4c49da, #403db8);
+    box-shadow:  4px 4px 8px #3c3aad,
+             -4px -4px 8px #524eeb;
+}
+
+.navbar .responsiveNavbarButton.pressed{
+    background: linear-gradient(145deg, #403db8, #4c49da);
+    box-shadow:  4px 4px 8px #3c3aad,
+                -4px -4px 8px #524eeb;
+}
+
 @media (max-width: 1280px){
     .navbar{
         padding: 0 80px;
@@ -67,7 +103,7 @@
     .navbar{
         justify-content: center;
         height: fit-content;
-        padding: 20px 0;
+        padding: 20px 30px;
     }
 
     .navbar .menu {

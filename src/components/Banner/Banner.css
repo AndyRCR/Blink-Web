@@ -31,7 +31,7 @@
 }
 
 .banner .imageContainer{
-    min-height: 500px;
+    /* min-height: 500px; */
     display: flex;
     align-items: center;
 }
@@ -96,5 +96,21 @@
 
     .sloganContainer p {
         text-align: center;
+    }
+}
+
+@media(max-width: 520px){
+    .sloganContainer p {
+        font-size: 15px;
+    }
+
+    .banner{
+        padding: 0px 45px;
+    }
+}
+
+@media(max-width: 380px){
+    .sloganContainer p {
+        font-size: 13px;
     }
 }
