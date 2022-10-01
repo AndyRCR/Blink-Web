@@ -5,12 +5,15 @@ import './Logo.css'
 
 const Logo = () => {
 
-  const {setIsDisplayed} = useContext(GlobalContext)
+  const {setIsDisplayed, isDisplayed} = useContext(GlobalContext)
 
   return (
     <div className='logo'>
       <Link
-      onClick={() => setIsDisplayed(false)}
+      onClick={() => {
+        document.querySelector('body').style.overflow = isDisplayed ? 'visible' : 'hidden'
+        setIsDisplayed(false)
+      }}
       to={'/'}>blink</Link>
     </div>
   )
