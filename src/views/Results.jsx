@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import ResultsContainer from '../components/ResultsContainer/ResultsContainer'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import { GlobalContext } from '../context/GlobalStateContext'
 
 const Results = () => {
 
     let navigate = useNavigate()
+
+    const {filtersDisplayed} = useContext(GlobalContext)
 
     useEffect(() => {
       if(localStorage.getItem('parameters') === 'no') navigate('/comparador')
@@ -13,7 +16,7 @@ const Results = () => {
 
     return (
         <motion.div
-        className='results'
+        className={filtersDisplayed ? 'results displayed' : 'results'}
         style={{backgroundColor: 'white'}}
         initial={{opacity: 0}}
         animate={{opacity: 1}}

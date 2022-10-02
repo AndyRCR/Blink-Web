@@ -1,6 +1,7 @@
 export const results = [
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-doctored.png',
+        name: 'DOCTORED',
         plan: 'DOCTORED 1000',
         price: '$25.257,42',
         discount: '$35.000,42',
@@ -25,6 +26,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-ps.png',
+        name: 'Prev. Salud',
         plan: 'A5',
         price: '$20.000,22',
         discount: null,
@@ -49,6 +51,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-sarcor.png',
+        name: 'SancorSalud',
         plan: '1000 B CC',
         price: '$34.016',
         discount: null,
@@ -73,6 +76,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-premedic.png',
+        name: 'PREMEDIC',
         plan: '500',
         price: '$52.257,12',
         discount: null,
@@ -97,6 +101,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-doctored.png',
+        name: 'DOCTORED',
         plan: 'DOCTORED 1000',
         price: '$25.257,42',
         discount: '$35.000,42',
@@ -121,6 +126,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-ps.png',
+        name: 'Prev. Salud',
         plan: 'A5',
         price: '$20.000,22',
         discount: null,
@@ -145,6 +151,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-sarcor.png',
+        name: 'SancorSalud',
         plan: '1000 B CC',
         price: '$34.016',
         discount: null,
@@ -169,6 +176,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-premedic.png',
+        name: 'PREMEDIC',
         plan: '500',
         price: '$52.257,12',
         discount: null,
@@ -193,6 +201,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-doctored.png',
+        name: 'DOCTORED',
         plan: 'DOCTORED 1000',
         price: '$25.257,42',
         discount: '$35.000,42',
@@ -217,6 +226,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-ps.png',
+        name: 'Prev. Salud',
         plan: 'A5',
         price: '$20.000,22',
         discount: null,
@@ -241,6 +251,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-sarcor.png',
+        name: 'SancorSalud',
         plan: '1000 B CC',
         price: '$34.016',
         discount: null,
@@ -265,6 +276,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-premedic.png',
+        name: 'PREMEDIC',
         plan: '500',
         price: '$52.257,12',
         discount: null,
@@ -289,6 +301,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-doctored.png',
+        name: 'DOCTORED',
         plan: 'DOCTORED 1000',
         price: '$25.257,42',
         discount: '$35.000,42',
@@ -313,6 +326,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-ps.png',
+        name: 'Prev. Salud',
         plan: 'A5',
         price: '$20.000,22',
         discount: null,
@@ -337,6 +351,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-sarcor.png',
+        name: 'SancorSalud',
         plan: '1000 B CC',
         price: '$34.016',
         discount: null,
@@ -361,6 +376,7 @@ export const results = [
     },
     {
         logo: 'https://blinkimages.s3.amazonaws.com/os/logo-premedic.png',
+        name: 'PREMEDIC',
         plan: '500',
         price: '$52.257,12',
         discount: null,

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../../context/GlobalStateContext'
 import Filters from '../Filters/Filters'
 import { results } from '../ResultsCarousel/ExampleResults'
@@ -9,12 +9,25 @@ const ResultsContainer = () => {
 
   const {filtersDisplayed} = useContext(GlobalContext)
 
+  const [resize, setResize] = useState(window.innerWidth < 900)
+
+  const handleResize = () => setResize(window.innerWidth < 900)
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+  
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [resize])
+  
+
   return (
     <div className={filtersDisplayed ? 'resultsContainer displayed' : 'resultsContainer'}>
         <Filters/>
-        <div className='carouselContainer'>
+        <div className='carouselContainer' style={{overflowX: resize ? 'scroll' : 'hidden'}}>
           <h3><span>{results.length}</span> resultados encontrados</h3>
-            <ResultsCarousel/>
+          <ResultsCarousel/>
         </div>
     </div>
   )

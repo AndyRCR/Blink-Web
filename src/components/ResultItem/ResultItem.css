@@ -1,4 +1,5 @@
 .resultsCarousel .result{
+    /* width: 100px; */
     margin: 0 8px;
     text-align: center;
     transition: .3s;
@@ -53,11 +54,13 @@
 .resultsCarousel .benefitItem{
     height: 70px;
     border-bottom: 1px solid var(--gris-blink);
-    padding: 20px 0;
     font-size: 18px;
     font-weight: 700;
     line-height: 28px;
     color: var(--blink-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .resultsCarousel .benefitItem:nth-child(18){
@@ -77,7 +80,7 @@
 }
 
 .pinFix.visible{
-    width: 220px;
+    /* width: 220px; */
     height: 100%;
     padding: 30px 0;
     position: relative;
@@ -110,4 +113,60 @@
     font-weight: 700;
     font-size: 19px;
     line-height: 28px;
+}
+
+@media(max-width: 1400px){
+    .resultsCarousel .result img {
+        width: 160px;
+    }
+
+    .resultsCarousel .benefitItem {
+        font-size: 12px;
+        height: 55px;
+    }
+
+    .resultsCarousel .info h4{
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 1245px){
+    .resultsCarousel .result img {
+        width: 130px;
+    }
+
+    .resultsCarousel .header {
+        height: 60px;
+    }
+
+    .resultsCarousel .result .info {
+        height: 90px;
+    }
+}
+
+@media(max-width: 1060px){
+    .resultsCarousel .result img {
+        width: 110px;
+    }
+
+    .resultsCarousel .info h4 {
+        font-size: 12px;
+    }
+
+    .resultsCarousel .benefitItem {
+        font-size: 10px;
+        line-height: 10px;
+    }
+
+    .resultsCarousel .benefitItem {
+        height: 40px;
+    }
+
+    .resultsCarousel .header {
+        height: 50px;
+    }
+
+    .resultsCarousel .result .info {
+        height: 70px;
+    }
 }

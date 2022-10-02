@@ -8,10 +8,11 @@
 .filters img{
     width: 100px;
     filter: grayscale(1);
+    transition: .2s;
 }
 
 .filters img:hover{
-    width: 100px;
+    /* width: 100px; */
     filter: grayscale(0);
 }
 

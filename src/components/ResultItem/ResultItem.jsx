@@ -7,18 +7,36 @@ import { GlobalContext } from '../../context/GlobalStateContext'
 import Swal from 'sweetalert2'
 import './ResultItem.css'
 
+const pixelToInt = (pixels) => {
+    return parseInt(pixels.slice(0, pixels.indexOf('p')))
+}
+
 const ResultItem = ({ res, i, pos }) => {
 
     const { itemCheckeds, setItemCheckeds } = useContext(GlobalContext)
 
     const [checked, setChecked] = useState(false)
+    const [width, setWidth] = useState(0)
+
+    const handleResize = () =>{
+        const style = window.getComputedStyle(document.querySelector('.carousel .result'))
+        const widthPx = style.getPropertyValue('width')
+        setWidth(pixelToInt(widthPx))
+    }
 
     const handlePosition = () =>{
         const item = document.querySelector(`.resultsCarousel .result${i + 1}`)
-        item.style.left = `${220 * pos + 16 * pos}px`
+        item.style.left = `${width * pos + 16 * pos}px`
     }
 
     const handleCheck = (e) => {
+        const style = window.getComputedStyle(document.querySelector('.carousel .result'))
+        const widthPx = style.getPropertyValue('width')
+
+        document.querySelectorAll('.pinFix.visible').forEach(el =>{
+            el.style.width = `${pixelToInt(widthPx)}px`
+        })
+
         const { checked } = e.target
         if (!checked){
             setItemCheckeds(itemCheckeds - 1)
@@ -41,6 +59,19 @@ const ResultItem = ({ res, i, pos }) => {
     }
 
     useEffect(() => {
+        const style = window.getComputedStyle(document.querySelector('.carousel .result'))
+        const widthPx = style.getPropertyValue('width')
+
+        setWidth(pixelToInt(widthPx))
+        document.querySelectorAll('.pinFix.visible').forEach(el =>{
+            el.style.width = `${pixelToInt(widthPx)}px`
+        })
+        
+        window.addEventListener('resize', handleResize)
+
+        return () =>{
+            window.removeEventListener('resize', handleResize)
+        }
     }, [checked])
 
     return (
@@ -57,7 +88,7 @@ const ResultItem = ({ res, i, pos }) => {
                         onChange={handleCheck} />
                 </div>
                 <div className='header'>
-                    <img src={res.logo} alt="prepaga logo blink" />
+                    <img src={res.logo} alt="prepaga logo blink"/>
                 </div>
                 <div className='info'>
                     <h4>{res.plan}</h4>

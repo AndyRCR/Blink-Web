@@ -10,9 +10,18 @@ const ResultsCarousel = () => {
 
   const [position, setPosition] = useState(0)
   const [newResults, setResults] = useState(results.map((el,index) => {return {...el, pos: index}}))
+  const [resize, setResize] = useState(window.innerWidth < 900)
 
   const pixelToInt = (pixels) => {
     return parseInt(pixels.slice(0, pixels.indexOf('p')))
+  }
+
+  const handleResize = () =>{
+    const carousel = document.querySelector('.carousel')
+    const style = window.getComputedStyle(document.querySelector('.carousel .result'))
+    const width = style.getPropertyValue('width')
+    setResize(window.innerWidth < 900)
+    carousel.style.width = `${pixelToInt(width) * 4 + 16 * 4}px`
   }
 
   const moveRight = () => {
@@ -68,10 +77,16 @@ const ResultsCarousel = () => {
     document.querySelectorAll('.carousel .pinFix.visible').forEach(item => {
       item.style.transform = `translateX(-${pixelToInt(width) * position + 16 * position}px)`
     })
-  }, [position])
+
+    window.addEventListener('resize', handleResize)
+
+    return () =>{
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [position, resize])
 
   return (
-    <div className='resultsCarousel'>
+    <div className='resultsCarousel' style={{width: resize ? 'fit-content' : '100%'}}>
         <Benefits/>
         <div className='scrollButton' onClick={moveRight}>
           <FontAwesomeIcon className='scrollIcon' icon={faAngleLeft} />
