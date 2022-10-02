@@ -43,12 +43,12 @@
 
 @media(max-width: 520px){
     .resultsContainer{
-        transform: translateY(-880px);
+        transform: translateY(-1130px);
     }
 }
 
-@media(max-width: 440px){
+/* @media(max-width: 440px){
     .resultsContainer{
-        /* transform: translateY(-910px); */
+        transform: translateY(-910px); 
     }
-}
+} */
