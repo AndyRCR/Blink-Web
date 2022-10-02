@@ -1,8 +1,11 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAnglesDown, faAnglesUp } from '@fortawesome/free-solid-svg-icons'
 import { Checkbox, FormControlLabel, FormGroup, ListItemText, ListSubheader, MenuItem, Select } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import './Filters.css'
+import { GlobalContext } from '../../context/GlobalStateContext'
 
 const useStyles = makeStyles({
     root: {
@@ -10,9 +13,6 @@ const useStyles = makeStyles({
             fontFamily: "'Poppins', sans-serif !important",
             color: '#757575 !important',
             fontSize: '14px !important'
-        },
-        '& .MuiSelect-select': {
-            paddingLeft: '0 !important'
         },
         "&.Mui-focused": {
             border: "2px solid #4744CC !important"
@@ -47,6 +47,8 @@ const MenuProps = {
 const Filters = () => {
 
     const classes = useStyles()
+
+    const {filtersDisplayed, setFiltersDisplayed} = useContext(GlobalContext)
 
     const [order, setOrder] = useState("1")
     const [clinicas, setClinicas] = useState([])
@@ -190,6 +192,15 @@ const Filters = () => {
                         Aplicar
                     </button>
                 </div>
+            </div>
+            <div className='showFilter'>
+                <p onClick={() => setFiltersDisplayed(!filtersDisplayed)}>
+                    {filtersDisplayed ? 'Ocultar filtros' : 'Mostrar filtros'}
+                </p>
+                <FontAwesomeIcon
+                onClick={() => setFiltersDisplayed(!filtersDisplayed)}
+                className={filtersDisplayed ? 'showFilterIcon pressed' : 'showFilterIcon'}
+                icon={filtersDisplayed ? faAnglesUp : faAnglesDown} />
             </div>
         </div>
     )

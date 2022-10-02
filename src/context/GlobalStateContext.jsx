@@ -25,6 +25,7 @@ const GlobalStateContext = ({ children }) => {
    * Responsive navbar
    */
   const [isDisplayed, setIsDisplayed] = useState(false)
+  const [filtersDisplayed, setFiltersDisplayed] = useState(false)
 
   /**
    * Carousel
@@ -167,7 +168,9 @@ const GlobalStateContext = ({ children }) => {
         position,
         setPosition,
         isDisplayed,
-        setIsDisplayed
+        setIsDisplayed,
+        filtersDisplayed,
+        setFiltersDisplayed
       }}
     >
       {children}

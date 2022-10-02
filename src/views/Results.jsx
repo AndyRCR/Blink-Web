@@ -14,7 +14,7 @@ const Results = () => {
     return (
         <motion.div
         className='results'
-        style={{paddingTop: '105px', backgroundColor: 'white'}}
+        style={{backgroundColor: 'white'}}
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}>

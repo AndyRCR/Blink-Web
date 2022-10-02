@@ -1,5 +1,5 @@
 .filters{
-    padding: 25px 120px;
+    padding: 25px 100px;
     background-color: #EBEBEB;
     display: flex;
     justify-content: space-between;
@@ -23,10 +23,19 @@
     margin-bottom: 25px;
 }
 
+.filters .filter{
+    width: 25%;
+    padding: 0 20px;
+}
+
 .filters .filter.last{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.filters .filter.last input{
+    width: 100px;
 }
 
 .filters .filterItem.formButton{
@@ -45,17 +54,18 @@
 
 .filters .filterPrice{
     display: flex;
+    justify-content: space-between;
 }
 
 .filters .divisor{
-    font-size: 30px;
+    font-size: 25px;
     display: flex;
     align-items: center;
     margin: 0 15px;
 }
 
 .filters .filterItem .customSelect{
-    width: 250px;
+    width: 100%;
 }
 
 .filters .filterItem input,
@@ -64,7 +74,7 @@
     height: 50px;
     margin-top: 6px;
     border-radius: 12px;
-    padding-left: 12px;
+    /* padding-left: 12px; */
     background-color: #fff;
 }
 
@@ -110,4 +120,201 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.filters .showFilter{
+    display: none;
+}
+
+@media(max-width: 1380px){
+    .filters .divisor {
+        margin: 0 5px;
+    }
+}
+
+@media(max-width: 1280px){
+    .filters {
+        padding: 25px 60px;
+    }
+}
+
+@media(max-width: 1100px){
+    .filters {
+        padding: 25px 50px;
+    }
+
+    .filters .filterPrice{
+        flex-direction: column;
+    }
+
+    .filters .filterPrice > div{
+        display: none;
+    }
+
+    .filters .filter.last input{
+        width: 100%;
+        margin: 0 0 25px;
+    }
+
+    .makeStyles-root-8 .MuiFormControlLabel-label {
+        font-size: 12px !important;
+    }
+    
+    .filters img {
+        width: 70px;
+    }
+
+    .filters .sendButton {
+        width: 100%;
+    }
+}
+
+@media(max-width: 950px){
+}
+
+@media(max-width: 870px){
+    .filters {
+        padding: 25px 10px;
+    }
+}
+
+@media(max-width: 815px){
+    .filters{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    .filters .filter {
+        width: 100%;
+    }
+
+    .filters .filter:nth-child(1){
+        grid-column: 1/3;
+        display: flex;
+    }
+
+    .filters .filter:nth-child(1) .filterItem{
+        width: 50%;
+    }
+
+    .filters .filterItem{
+        padding: 0 20px;
+    }
+
+    .filters .filter.last{
+        grid-column: 1/3;
+    }
+
+    .filters .filterPrice{
+        flex-direction: row;
+    }
+
+    .filters .filterPrice > div{
+        display: flex;
+    }
+
+    .filters .filter.last input {
+        margin: 0;
+    }
+
+    .filters .divisor {
+        margin: 0 14px;
+    }
+
+    .filters .sendButton {
+        width: 40%;
+    }
+
+    .filters .filter.last .filterItem:nth-child(2) {
+        justify-content: center;
+    }
+
+    .filters .showFilter{
+        cursor: pointer;
+        grid-column: 1/3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .filters .sendButton {
+        margin: 20px 0 10px;
+    }
+
+    .filters .showFilter > div,
+    .filters .showFilter > p{
+        cursor: pointer;
+    }
+
+    .filters .showFilterIcon{
+        margin: 0 10px;
+        animation: showFilterIcon 1.3s linear infinite;
+    }
+
+    .filters .showFilterIcon.pressed{
+        transform: rotate(180deg);
+    }    
+
+    .filters {
+        padding: 25px 10px 10px;
+    }
+}
+
+@media(max-width: 520px){
+    .filters .filter:nth-child(1){
+        display: block;
+    }
+
+    .filters .filter:nth-child(1) .filterItem {
+        width: 100%;
+    }
+
+    .filters .filter {
+        padding: 0;
+    }
+
+    .filters .filter:nth-child(2),
+    .filters .filter:nth-child(3) {
+        grid-column: 1/3;
+    }
+
+    .css-dmmspl-MuiFormGroup-root {
+        display: grid !important;
+        grid-template-columns: repeat(2,1fr) !important;
+    }
+}
+
+@media(max-width: 450px){
+    .makeStyles-root-1 .MuiFormControlLabel-label {
+        font-size: 10px !important;
+    }
+
+    .filters .sendButton {
+        width: 80%;
+    }
+}
+
+@media(max-width: 370px){
+}
+
+@media(max-width: 340px){
+}
+
+@keyframes showFilterIcon {
+    0%{
+        transform: translateY(0)
+    }
+    25%{
+        transform: translateY(3px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    75%{
+        transform: translateY(-3px);
+    }
+    100%{
+        transform: translateY(0);
+    }
 }

@@ -1,3 +1,7 @@
+.results{
+    padding-top: 105px;
+}
+
 .resultsContainer{
     margin-bottom: 60px;
 }
@@ -14,4 +18,37 @@
 
 .resultsContainer .carouselContainer span{
     color: var(--blink-main);
+}
+
+@media(max-width: 870px){
+    .results{
+        padding-top: 78px;
+    }
+}
+
+@media(max-width: 815px){
+    .results{
+        padding-top: 78px;
+    }
+
+    .resultsContainer{
+        transform: translateY(-700px);
+        transition: .5s;
+    }
+
+    .resultsContainer.displayed{
+        transform: translateY(0);
+    }
+}
+
+@media(max-width: 520px){
+    .resultsContainer{
+        transform: translateY(-880px);
+    }
+}
+
+@media(max-width: 440px){
+    .resultsContainer{
+        transform: translateY(-910px);
+    }
 }
