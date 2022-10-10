@@ -30,7 +30,7 @@ const GlobalStateContext = ({ children }) => {
   /**
    * Carousel
    */
-  const [results, setResults] = useState(resultados.map(res => { return { ...res, pinned: false } }))
+  const [results, setResults] = useState([])
   const [itemCheckeds, setItemCheckeds] = useState(0)
   const [position, setPosition] = useState(0)
 
@@ -85,6 +85,31 @@ const GlobalStateContext = ({ children }) => {
     partnerAge: '',
     childrens: ''
   })
+
+  const obtainResults = () =>{
+    let idZone = user.zone === 'CABA'
+    ? 1
+    : user.zone === 'GBA Norte'
+    ? 2
+    : user.zone === 'GBA Sur'
+    ? 3
+    : 4
+
+    let idSituation = user.situation === 'Monotributista'
+    ? 1
+    : user.situation === 'Relación en dependencia'
+    ? 2
+    : 3
+
+    // fetch(`http://softwel.ddns.net/dev/api-quoter/index.php/quoter/quotation?age=${user.age}&employ=${idSituation}&couple=${user.partnerAge === '' ? 0 : 1}&coupleage=${user.partnerAge === '' ? 0 : user.partnerAge}&sons=${user.childrens === '' ? 0 : user.childrens}&location=${idZone}`)
+    // .then(res => res.json())
+    // .then(data => console.log(data))
+
+    // setResults(resultados)
+    let newArr = []
+    resultados.forEach(arr => arr.forEach(el => newArr.push(el)))
+    setResults(newArr)
+  }
 
   const clearPostulantForm = () => {
     setPostulant({
@@ -170,7 +195,8 @@ const GlobalStateContext = ({ children }) => {
         isDisplayed,
         setIsDisplayed,
         filtersDisplayed,
-        setFiltersDisplayed
+        setFiltersDisplayed,
+        obtainResults
       }}
     >
       {children}

@@ -42,7 +42,8 @@ const ComparadorForm = ({ state }) => {
         user, setUser,
         isLoading,
         partnerSwitch, setPartnerSwitch,
-        childrenSwitch, setChildrenSwitch
+        childrenSwitch, setChildrenSwitch,
+        obtainResults
     } = useContext(GlobalContext)
 
     const navigate = useNavigate()
@@ -59,6 +60,7 @@ const ComparadorForm = ({ state }) => {
     const [captchaValue, setCaptchaValue] = useState(null)
 
     const verifyFields = () => {
+        obtainResults()
         if (!isLoading) {
             if (
                 user.name !== '' &&
@@ -117,7 +119,7 @@ const ComparadorForm = ({ state }) => {
         } else if (name === 'age') {
             setValidAge(
                 value < 100 &&
-                value > 17 &&
+                value > 0 &&
                 value - parseInt(value) === 0 &&
                 !/[a-zA-Z]/g.test(value) &&
                 value.indexOf('.') === -1
@@ -125,15 +127,15 @@ const ComparadorForm = ({ state }) => {
         } else if (name === 'partnerAge') {
             setValidPartnerAge(
                 value < 100 &&
-                value > 17 &&
+                value > 0 &&
                 value - parseInt(value) === 0 &&
                 !/[a-zA-Z]/g.test(value) &&
                 value.indexOf('.') === -1
             )
         } else if (name === 'childrens') {
             setValidChildrens(
-                value < 31 &&
-                value > 0 &&
+                value < 7 &&
+                value >= 0 &&
                 value - parseInt(value) === 0 &&
                 !/[a-zA-Z]/g.test(value) &&
                 value.indexOf('.') === -1
