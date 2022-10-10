@@ -30,6 +30,7 @@
     "sweetalert2": "^11.4.33",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "http://www.blinksalud.com.ar/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
