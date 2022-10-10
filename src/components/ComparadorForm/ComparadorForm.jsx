@@ -60,7 +60,7 @@ const ComparadorForm = ({ state }) => {
     const [captchaValue, setCaptchaValue] = useState(null)
 
     const verifyFields = () => {
-        obtainResults()
+        // obtainResults()
         if (!isLoading) {
             if (
                 user.name !== '' &&
