@@ -48,7 +48,7 @@ const Filters = () => {
 
     const classes = useStyles()
 
-    const {filtersDisplayed, setFiltersDisplayed} = useContext(GlobalContext)
+    const { filtersDisplayed, setFiltersDisplayed, clinics } = useContext(GlobalContext)
 
     const [order, setOrder] = useState("1")
     const [clinicas, setClinicas] = useState([])
@@ -56,6 +56,11 @@ const Filters = () => {
     const handleChange = (e) => {
         const { value } = e.target
         setClinicas(typeof value === 'string' ? value.split(',') : value)
+    }
+
+    const cleanFilters = () =>{
+        setClinicas([])
+        setOrder("1")
     }
 
     return (
@@ -71,7 +76,19 @@ const Filters = () => {
                         className={`customSelect ${classes.root}`}
                         MenuProps={MenuProps}
                     >
-                        <ListSubheader>Capital federal</ListSubheader>
+                        {clinics !== null ? (
+                            clinics.map((clinic, index) => {
+                                return (
+                                    <MenuItem value={clinic} key={`clinicCheckbox${index+1}`}>
+                                        <Checkbox checked={clinicas.indexOf(clinic) > -1} />
+                                        <ListItemText primary={clinic} />
+                                    </MenuItem>
+                                )
+                            })
+                        ) : (
+                            <h1>Cargando...</h1>
+                        )}
+                        {/* <ListSubheader>Capital federal</ListSubheader>
                         <MenuItem value='CEMIC'>
                             <Checkbox checked={clinicas.indexOf('CEMIC') > -1} />
                             <ListItemText primary='CEMIC' />
@@ -101,7 +118,7 @@ const Filters = () => {
                         <MenuItem value='Clínica 3'>
                             <Checkbox checked={clinicas.indexOf('Clínica 3') > -1} />
                             <ListItemText primary='Clínica 3' />
-                        </MenuItem>
+                        </MenuItem> */}
                     </Select>
                 </div>
                 <div className="filterItem">
@@ -151,22 +168,22 @@ const Filters = () => {
                             label='Todas' />
                         <FormControlLabel
                             control={<Checkbox />}
-                            label={<img src='https://blinkimages.s3.amazonaws.com/os/logo-doctored.png' alt=''/>} />
+                            label={<img src='https://blinkimages.s3.amazonaws.com/os/logo-doctored.png' alt='' />} />
                         <FormControlLabel
                             control={<Checkbox />}
-                            label={<img src='https://blinkimages.s3.amazonaws.com/os/logo-galeno.png' alt=''/>} />
+                            label={<img src='https://blinkimages.s3.amazonaws.com/os/logo-galeno.png' alt='' />} />
                         <FormControlLabel
                             control={<Checkbox />}
-                            label={<img src='https://blinkimages.s3.amazonaws.com/os/logo-omint.png' alt=''/>} />
+                            label={<img src='https://blinkimages.s3.amazonaws.com/os/logo-omint.png' alt='' />} />
                         <FormControlLabel
                             control={<Checkbox />}
-                            label={<img src='https://blinkimages.s3.amazonaws.com/os/logo-premedic.png' alt=''/>} />
+                            label={<img src='https://blinkimages.s3.amazonaws.com/os/logo-premedic.png' alt='' />} />
                         <FormControlLabel
                             control={<Checkbox />}
-                            label={<img src='https://blinkimages.s3.amazonaws.com/os/logo-sarcor.png' alt=''/>} />
+                            label={<img src='https://blinkimages.s3.amazonaws.com/os/logo-sarcor.png' alt='' />} />
                         <FormControlLabel
                             control={<Checkbox />}
-                            label={<img src='https://blinkimages.s3.amazonaws.com/os/logo-ps.png' alt=''/>} />
+                            label={<img src='https://blinkimages.s3.amazonaws.com/os/logo-ps.png' alt='' />} />
                     </FormGroup>
                 </div>
             </div>
@@ -175,19 +192,24 @@ const Filters = () => {
                     <p>Presupuesto</p>
                     <div className='filterPrice'>
                         <input
-                        placeholder='Desde'
-                        name='min'
-                        type="number"
-                        min={1}/>
+                            placeholder='Desde'
+                            name='min'
+                            type="number"
+                            min={1} />
                         <div className='divisor'>-</div>
                         <input
-                        placeholder='Hasta'
-                        name='max'
-                        type="number"
-                        min={1} />
+                            placeholder='Hasta'
+                            name='max'
+                            type="number"
+                            min={1} />
                     </div>
                 </div>
-                <div className='filterItem'>
+                <div className='filterItem' style={{flexDirection: 'column', alignItems: 'center'}}>
+                    <button
+                    className='primaryButton sendButton'
+                    onClick={cleanFilters}>
+                        Limpiar filtros
+                    </button>
                     <button className='primaryButton sendButton'>
                         Aplicar
                     </button>
@@ -198,9 +220,9 @@ const Filters = () => {
                     {filtersDisplayed ? 'Ocultar filtros' : 'Mostrar filtros'}
                 </p>
                 <FontAwesomeIcon
-                onClick={() => setFiltersDisplayed(!filtersDisplayed)}
-                className={filtersDisplayed ? 'showFilterIcon pressed' : 'showFilterIcon'}
-                icon={filtersDisplayed ? faAnglesUp : faAnglesDown} />
+                    onClick={() => setFiltersDisplayed(!filtersDisplayed)}
+                    className={filtersDisplayed ? 'showFilterIcon pressed' : 'showFilterIcon'}
+                    icon={filtersDisplayed ? faAnglesUp : faAnglesDown} />
             </div>
         </div>
     )

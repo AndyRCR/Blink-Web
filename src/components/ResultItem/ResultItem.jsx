@@ -11,6 +11,24 @@ const pixelToInt = (pixels) => {
     return parseInt(pixels.slice(0, pixels.indexOf('p')))
 }
 
+const numberFormatter = x => {
+    return `$${x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+}
+
+const stringFormatter = x => {
+    return x
+        .replaceAll('Ã³', 'ó')
+        .replaceAll('Ã±', 'ñ')
+}
+
+const checkAvailability = x => {
+    return x === null || x === undefined || x.toLowerCase() === 'no'
+    ? <FontAwesomeIcon icon={faXmark} />
+    : x.toLowerCase() === 'si'
+        ? <FontAwesomeIcon icon={faCheck} />
+        : stringFormatter(x)
+}
+
 const ResultItem = ({ res, i, pos }) => {
 
     const { itemCheckeds, setItemCheckeds } = useContext(GlobalContext)
@@ -18,13 +36,13 @@ const ResultItem = ({ res, i, pos }) => {
     const [checked, setChecked] = useState(false)
     const [width, setWidth] = useState(0)
 
-    const handleResize = () =>{
+    const handleResize = () => {
         const style = window.getComputedStyle(document.querySelector('.carousel .result'))
         const widthPx = style.getPropertyValue('width')
         setWidth(pixelToInt(widthPx))
     }
 
-    const handlePosition = () =>{
+    const handlePosition = () => {
         const item = document.querySelector(`.resultsCarousel .result${i + 1}`)
         item.style.left = `${width * pos + 16 * pos}px`
     }
@@ -33,12 +51,12 @@ const ResultItem = ({ res, i, pos }) => {
         const style = window.getComputedStyle(document.querySelector('.carousel .result'))
         const widthPx = style.getPropertyValue('width')
 
-        document.querySelectorAll('.pinFix.visible').forEach(el =>{
+        document.querySelectorAll('.pinFix.visible').forEach(el => {
             el.style.width = `${pixelToInt(widthPx)}px`
         })
 
         const { checked } = e.target
-        if (!checked){
+        if (!checked) {
             setItemCheckeds(itemCheckeds - 1)
             setChecked(checked)
             handlePosition()
@@ -63,13 +81,13 @@ const ResultItem = ({ res, i, pos }) => {
         const widthPx = style.getPropertyValue('width')
 
         setWidth(pixelToInt(widthPx))
-        document.querySelectorAll('.pinFix.visible').forEach(el =>{
+        document.querySelectorAll('.pinFix.visible').forEach(el => {
             el.style.width = `${pixelToInt(widthPx)}px`
         })
-        
+
         window.addEventListener('resize', handleResize)
 
-        return () =>{
+        return () => {
             window.removeEventListener('resize', handleResize)
         }
     }, [checked])
@@ -88,28 +106,22 @@ const ResultItem = ({ res, i, pos }) => {
                         onChange={handleCheck} />
                 </div>
                 <div className='header'>
-                    <img src={res.logo} alt="prepaga logo blink"/>
+                    <img src={`https://blinkimages.s3.amazonaws.com/os/logo-${res.nameprovider.toLowerCase()}.png`} alt="prepaga logo blink" />
                 </div>
                 <div className='info'>
-                    <h4>{res.plan}</h4>
-                    <h2>{res.price}</h2>
+                    <h4>Plan {res.nameplan}</h4>
+                    <h2>{numberFormatter(res.price)}</h2>
                     <p>{res.discount !== null ? res.discount : '-'}</p>
                 </div>
                 <div className='benefits'>
                     <div className="benefitItem">
-                        {typeof res.reintegros === 'boolean'
-                            ? <FontAwesomeIcon icon={res.reintegros ? faCheck : faXmark} />
-                            : res.reintegros}
+                        {checkAvailability(res.refund)}
                     </div>
                     <div className="benefitItem">
-                        {typeof res.internacion === 'boolean'
-                            ? <FontAwesomeIcon icon={res.internacion ? faCheck : faXmark} />
-                            : res.internacion}
+                        {checkAvailability(res.internation)}
                     </div>
                     <div className="benefitItem">
-                        {typeof res.medico === 'boolean'
-                            ? <FontAwesomeIcon icon={res.medico ? faCheck : faXmark} />
-                            : res.medico}
+                        {checkAvailability(res.doctorathome)}
                     </div>
                     <div className="benefitItem">
                         {typeof res.guardia === 'boolean'
@@ -137,14 +149,10 @@ const ResultItem = ({ res, i, pos }) => {
                             : res.farmacias}
                     </div>
                     <div className="benefitItem">
-                        {typeof res.odontologia === 'boolean'
-                            ? <FontAwesomeIcon icon={res.odontologia ? faCheck : faXmark} />
-                            : res.odontologia}
+                        {checkAvailability(res.odontology)}
                     </div>
                     <div className="benefitItem">
-                        {typeof res.ortodoncia === 'boolean'
-                            ? <FontAwesomeIcon icon={res.ortodoncia ? faCheck : faXmark} />
-                            : res.ortodoncia}
+                        {checkAvailability(res.orthodontics)}
                     </div>
                     <div className="benefitItem">
                         {typeof res.implantes === 'boolean'
@@ -190,8 +198,8 @@ const ResultItem = ({ res, i, pos }) => {
             </div>
             <div className='pinBackground'>
                 <div className={checked ? 'pinFix visible' : 'pinFix'}>
-                    P<br/>l<br/>a<br/>n<br/><br/>
-                    f<br/>i<br/>j<br/>a<br/>d<br/>o
+                    P<br />l<br />a<br />n<br /><br />
+                    f<br />i<br />j<br />a<br />d<br />o
                 </div>
             </div>
         </>

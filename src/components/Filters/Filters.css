@@ -113,7 +113,7 @@
 }
 
 .filters .sendButton{
-    width: 50%;
+    width: 100%;
     height: 50px;
     font-weight: 700;
     font-size: 15px;
@@ -121,6 +121,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .filters .showFilter{
@@ -224,7 +225,7 @@
     }
 
     .filters .sendButton {
-        width: 40%;
+        width: 50%;
     }
 
     .filters .filter.last .filterItem:nth-child(2) {

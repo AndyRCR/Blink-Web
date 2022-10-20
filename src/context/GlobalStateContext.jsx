@@ -3,7 +3,7 @@ import axios from 'axios'
 import emailjs from 'emailjs-com'
 import $ from 'jquery'
 import Swal from 'sweetalert2'
-import { results as resultados } from "../components/ResultsCarousel/ExampleResults";
+import jsonData from './quotation.json'
 
 export const GlobalContext = createContext()
 
@@ -31,6 +31,7 @@ const GlobalStateContext = ({ children }) => {
    * Carousel
    */
   const [results, setResults] = useState([])
+  const [clinics, setClinics] = useState(null)
   const [itemCheckeds, setItemCheckeds] = useState(0)
   const [position, setPosition] = useState(0)
 
@@ -86,6 +87,32 @@ const GlobalStateContext = ({ children }) => {
     childrens: ''
   })
 
+  const stringFormatter = x => {
+    return x
+    .replaceAll('Ã³', 'o')
+    .replaceAll('ã‘', 'ñ')
+    .replaceAll('ã�', 'i')
+  }
+
+  const formatClinics = clinicList => {
+    return clinicList === null
+    ? []
+    : clinicList
+    .trim()
+    .replaceAll('\u00cc\ufffd','')
+    .replaceAll('\u00cc\u0192','')
+    .replaceAll('\u00c3\u2018','Ñ')
+    .replaceAll(', ','-')
+    .replaceAll('\r\n\r\n','-')
+    .replaceAll('\r\n','-')
+    .split('-')
+    .map(el => {
+      return el.trim().split(" ").length === 1 && el.trim().length < 6
+      ? el.trim().toUpperCase()
+      : stringFormatter(el.trim().toLowerCase()).replace(/\b\w/g, letra => letra.toUpperCase())
+    })
+  }
+
   const obtainResults = () =>{
     let idZone = user.zone === 'CABA'
     ? 1
@@ -105,10 +132,14 @@ const GlobalStateContext = ({ children }) => {
     // .then(res => res.json())
     // .then(data => console.log(data))
 
-    // setResults(resultados)
-    let newArr = []
-    resultados.forEach(arr => arr.forEach(el => newArr.push(el)))
+    let resultArr = []
+    let clinicArr = []
+
+    JSON.parse(JSON.stringify(jsonData)).forEach(arr => arr.forEach(el => resultArr.push(el)))
+    let newArr = resultArr.map((el, index) => { return { ...el, clinics: formatClinics(el.clinics), pos: index } })
     setResults(newArr)
+    newArr.forEach( el => el.clinics.forEach(clinic => clinicArr.push(clinic)))
+    setClinics(Array.from(new Set(clinicArr)).sort())
   }
 
   const clearPostulantForm = () => {
@@ -196,7 +227,8 @@ const GlobalStateContext = ({ children }) => {
         setIsDisplayed,
         filtersDisplayed,
         setFiltersDisplayed,
-        obtainResults
+        obtainResults,
+        clinics
       }}
     >
       {children}

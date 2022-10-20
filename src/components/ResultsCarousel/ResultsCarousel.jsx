@@ -2,17 +2,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons"
 import React, { useContext, useEffect, useState } from 'react'
 import ResultItem from '../ResultItem/ResultItem'
-import { results } from './ExampleResults'
+// import { results } from './ExampleResults'
 import './ResultsCarousel.css'
 import Benefits from '../Benefits/Benefits'
 import { GlobalContext } from '../../context/GlobalStateContext'
 
 const ResultsCarousel = () => {
 
-  const { obtainResults } = useContext(GlobalContext)
+  const { obtainResults, results, setResults } = useContext(GlobalContext)
 
   const [position, setPosition] = useState(0)
-  const [newResults, setNewResults] = useState(results.map((el, index) => { return { ...el, pos: index } }))
   const [resize, setResize] = useState(window.innerWidth < 900)
 
   const pixelToInt = (pixels) => {
@@ -29,7 +28,7 @@ const ResultsCarousel = () => {
 
   const moveRight = () => {
     if (position > 0) {
-      setNewResults(newResults.map(el => {
+      setResults(results.map(el => {
         return {
           ...el,
           pos: el.pos + 1
@@ -51,7 +50,7 @@ const ResultsCarousel = () => {
 
   const moveLeft = () => {
     if (position < results.length - 1) {
-      setNewResults(newResults.map(el => {
+      setResults(results.map(el => {
         return {
           ...el,
           pos: el.pos - 1
@@ -70,7 +69,8 @@ const ResultsCarousel = () => {
   }
 
   useEffect(() => {
-    // obtainResults()
+    if(results.length === 0) obtainResults()
+
     if(results.length > 0){
       const carousel = document.querySelector('.carousel')
       const width = document.querySelector('.carousel .result').clientWidth
@@ -83,6 +83,9 @@ const ResultsCarousel = () => {
       document.querySelectorAll('.carousel .pinFix.visible').forEach(item => {
         item.style.transform = `translateX(-${width * position + 16 * position}px)`
       })
+    }else{
+      const carousel = document.querySelector('.carousel')
+      carousel.style.width = `${220 * 4 + 16 * 4}px`
     }
 
     window.addEventListener('resize', handleResize)
@@ -90,30 +93,24 @@ const ResultsCarousel = () => {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [position, resize, newResults])
+  }, [position, resize, results])
 
   return (
     <div className='resultsCarousel' style={{ width: resize ? 'fit-content' : '100%' }}>
-      {results.length > 0 ? (
-        <>
-          <Benefits />
-          <div className='scrollButton' onClick={moveRight}>
-            <FontAwesomeIcon className='scrollIcon' icon={faAngleLeft} />
-          </div>
-          <div className='carousel'>
-            {newResults.map((res, i) => {
-              return (
-                <ResultItem res={res} i={i} pos={res.pos} key={`result ${i}`} />
-              )
-            })}
-          </div>
-          <div className='scrollButton' onClick={moveLeft}>
-            <FontAwesomeIcon className='scrollIcon' icon={faAngleRight} />
-          </div>
-        </>
-      ):(
-        <h1>Cargando</h1>
-      )}
+      <Benefits />
+      <div className='scrollButton' onClick={moveRight}>
+        <FontAwesomeIcon className='scrollIcon' icon={faAngleLeft} />
+      </div>
+      <div className='carousel'>
+        {results.map((res, i) => {
+          return (
+            <ResultItem res={res} i={i} pos={res.pos} key={`result ${i}`} />
+          )
+        })}
+      </div>
+      <div className='scrollButton' onClick={moveLeft}>
+        <FontAwesomeIcon className='scrollIcon' icon={faAngleRight} />
+      </div>
     </div>
   )
 }
