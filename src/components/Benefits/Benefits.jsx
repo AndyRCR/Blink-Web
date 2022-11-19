@@ -19,7 +19,7 @@ const Benefits = () => {
                 <img src="https://blinkimages.s3.amazonaws.com/comparador/beneficios/medicodomicilio.png" alt="beneficio blink" />
                 <p>Médico a domicilio</p>
             </div>
-            <div className="benefitItem">
+            {/* <div className="benefitItem">
                 <img src="https://blinkimages.s3.amazonaws.com/comparador/beneficios/guardiamedica.png" alt="beneficio blink" />
                 <p>Guardia médica</p>
             </div>
@@ -38,7 +38,7 @@ const Benefits = () => {
             <div className="benefitItem">
                 <img src="https://blinkimages.s3.amazonaws.com/comparador/beneficios/farmacias.png" alt="beneficio blink" />
                 <p>Farmacias</p>
-            </div>
+            </div> */}
             <div className="benefitItem">
                 <img src="https://blinkimages.s3.amazonaws.com/comparador/beneficios/odontologia.png" alt="beneficio blink" />
                 <p>Odontología</p>
@@ -47,7 +47,7 @@ const Benefits = () => {
                 <img src="https://blinkimages.s3.amazonaws.com/comparador/beneficios/ortodoncia.png" alt="beneficio blink" />
                 <p>Ortodoncia</p>
             </div>
-            <div className="benefitItem">
+            {/* <div className="benefitItem">
                 <img src="https://blinkimages.s3.amazonaws.com/comparador/beneficios/implantes.png" alt="beneficio blink" />
                 <p>Implantes y prótesis dentales</p>
             </div>
@@ -78,7 +78,7 @@ const Benefits = () => {
             <div className="benefitItem" style={{borderBottom: 'none'}}>
                 <img src="https://blinkimages.s3.amazonaws.com/comparador/beneficios/cobertura.png" alt="beneficio blink" />
                 <p>Alcance de cobertura</p>
-            </div>
+            </div> */}
         </div>
     )
 }

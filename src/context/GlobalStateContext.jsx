@@ -1,9 +1,8 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState } from "react"
 import axios from 'axios'
 import emailjs from 'emailjs-com'
 import $ from 'jquery'
 import Swal from 'sweetalert2'
-import jsonData from './quotation.json'
 
 export const GlobalContext = createContext()
 
@@ -30,10 +29,21 @@ const GlobalStateContext = ({ children }) => {
   /**
    * Carousel
    */
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState(null)
   const [clinics, setClinics] = useState(null)
   const [itemCheckeds, setItemCheckeds] = useState(0)
   const [position, setPosition] = useState(0)
+
+  /**
+   *  Filters
+   */
+  const [filteredResults, setFilteredResults] = useState(null)
+  const [clinicsFiltereds, setClinicsFiltereds] = useState([])
+  const [benefitsFiltereds, setBenefitsFiltereds] = useState([])
+  const [providersFiltereds, setProvidersFiltered] = useState([])
+  const [minBudget, setMinBudget] = useState('')
+  const [maxBudget, setMaxBudget] = useState('')
+  const [orderBy, setOrderBy] = useState('default')
 
   /**
    * Blogs
@@ -89,57 +99,58 @@ const GlobalStateContext = ({ children }) => {
 
   const stringFormatter = x => {
     return x
-    .replaceAll('Ã³', 'o')
-    .replaceAll('ã‘', 'ñ')
-    .replaceAll('ã�', 'i')
+      .replaceAll('Ã³', 'o')
+      .replaceAll('ã‘', 'ñ')
+      .replaceAll('ã�', 'i')
   }
 
   const formatClinics = clinicList => {
     return clinicList === null
-    ? []
-    : clinicList
-    .trim()
-    .replaceAll('\u00cc\ufffd','')
-    .replaceAll('\u00cc\u0192','')
-    .replaceAll('\u00c3\u2018','Ñ')
-    .replaceAll(', ','-')
-    .replaceAll('\r\n\r\n','-')
-    .replaceAll('\r\n','-')
-    .split('-')
-    .map(el => {
-      return el.trim().split(" ").length === 1 && el.trim().length < 6
-      ? el.trim().toUpperCase()
-      : stringFormatter(el.trim().toLowerCase()).replace(/\b\w/g, letra => letra.toUpperCase())
-    })
+      ? []
+      : clinicList
+        .trim()
+        .replaceAll('\u00cc\ufffd', '')
+        .replaceAll('\u00cc\u0192', '')
+        .replaceAll('\u00c3\u2018', 'Ñ')
+        .replaceAll(', ', '-')
+        .replaceAll('\r\n\r\n', '-')
+        .replaceAll('\r\n', '-')
+        .split('-')
+        .map(el => {
+          return el.trim().split(" ").length === 1 && el.trim().length < 6
+            ? el.trim().toUpperCase()
+            : stringFormatter(el.trim().toLowerCase()).replace(/\b\w/g, letra => letra.toUpperCase())
+        })
   }
 
-  const obtainResults = () =>{
+  const obtainResults = () => {
     let idZone = user.zone === 'CABA'
-    ? 1
-    : user.zone === 'GBA Norte'
-    ? 2
-    : user.zone === 'GBA Sur'
-    ? 3
-    : 4
+      ? 1
+      : user.zone === 'GBA Norte'
+        ? 2
+        : user.zone === 'GBA Sur'
+          ? 3
+          : 4
 
     let idSituation = user.situation === 'Monotributista'
-    ? 1
-    : user.situation === 'Relación en dependencia'
-    ? 2
-    : 3
+      ? 1
+      : user.situation === 'Relación en dependencia'
+        ? 2
+        : 3
 
-    // fetch(`http://softwel.ddns.net/dev/api-quoter/index.php/quoter/quotation?age=${user.age}&employ=${idSituation}&couple=${user.partnerAge === '' ? 0 : 1}&coupleage=${user.partnerAge === '' ? 0 : user.partnerAge}&sons=${user.childrens === '' ? 0 : user.childrens}&location=${idZone}`)
-    // .then(res => res.json())
-    // .then(data => console.log(data))
+    fetch(`http://www.blinksalud.com/apiquoter/index.php/quoters/quotation?age=${user.age}&employ=${idSituation}&couple=${user.partnerAge === '' ? 0 : 1}&coupleage=${user.partnerAge === '' ? 0 : user.partnerAge}&sons=${user.childrens === '' ? 0 : user.childrens}&location=${idZone}`)
+      .then(res => res.json())
+      .then(data => {
+        let resultArr = []
+        let clinicArr = []
 
-    let resultArr = []
-    let clinicArr = []
+        data.forEach(arr => arr.forEach(el => resultArr.push(el)))
+        let newArr = resultArr.map((el, index) => { return { ...el, clinics: formatClinics(el.clinics), pos: index } })
+        setResults(newArr)
 
-    JSON.parse(JSON.stringify(jsonData)).forEach(arr => arr.forEach(el => resultArr.push(el)))
-    let newArr = resultArr.map((el, index) => { return { ...el, clinics: formatClinics(el.clinics), pos: index } })
-    setResults(newArr)
-    newArr.forEach( el => el.clinics.forEach(clinic => clinicArr.push(clinic)))
-    setClinics(Array.from(new Set(clinicArr)).sort())
+        newArr.forEach(el => el.clinics.forEach(clinic => clinicArr.push(clinic)))
+        setClinics(Array.from(new Set(clinicArr)).sort())
+      })
   }
 
   const clearPostulantForm = () => {
@@ -200,35 +211,30 @@ const GlobalStateContext = ({ children }) => {
 
   return (
     <GlobalContext.Provider
-      value={{
-        selectedFile,
-        setSelectedFile,
-        uploadFile,
-        articles,
-        setArticles,
-        postulant,
-        setPostulant,
-        fileUploaded,
-        setFileUploaded,
+    value={{
+        clinics,
         isLoading,
-        user,
-        setUser,
-        partnerSwitch,
-        setPartnerSwitch,
-        childrenSwitch,
-        setChildrenSwitch,
-        itemCheckeds,
-        setItemCheckeds,
-        results,
-        setResults,
-        position,
-        setPosition,
-        isDisplayed,
-        setIsDisplayed,
-        filtersDisplayed,
-        setFiltersDisplayed,
+        uploadFile,
         obtainResults,
-        clinics
+        selectedFile, setSelectedFile,
+        articles, setArticles,
+        postulant, setPostulant,
+        fileUploaded, setFileUploaded,
+        user, setUser,
+        partnerSwitch, setPartnerSwitch,
+        childrenSwitch, setChildrenSwitch,
+        itemCheckeds, setItemCheckeds,
+        results, setResults,
+        position, setPosition,
+        isDisplayed, setIsDisplayed,
+        filtersDisplayed, setFiltersDisplayed,
+        clinicsFiltereds, setClinicsFiltereds,
+        orderBy, setOrderBy,
+        benefitsFiltereds, setBenefitsFiltereds,
+        providersFiltereds, setProvidersFiltered,
+        minBudget, setMinBudget,
+        maxBudget, setMaxBudget,
+        filteredResults, setFilteredResults
       }}
     >
       {children}

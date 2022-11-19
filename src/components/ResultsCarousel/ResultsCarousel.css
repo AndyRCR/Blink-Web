@@ -9,6 +9,14 @@
     margin: 30px 0;
 }
 
+.resultsCarousel .loaderTitle {
+    font-size: 70px;
+    color: var(--blink-main);
+    font-weight: bold;
+    font-family: 'Comfortaa', cursive;
+    animation: loaderAnimation 1800ms ease 0s infinite normal;
+}
+
 .resultsCarousel h2{
     font-weight: 700;
     font-size: 33px;
@@ -25,6 +33,11 @@
     display: flex;
     overflow: hidden;
     position: relative;
+}
+
+.resultsCarousel .carousel.noresults{
+    justify-content: center;
+    align-items: center;
 }
 
 /*Button scroll*/

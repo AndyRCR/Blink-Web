@@ -42,8 +42,7 @@ const ComparadorForm = ({ state }) => {
         user, setUser,
         isLoading,
         partnerSwitch, setPartnerSwitch,
-        childrenSwitch, setChildrenSwitch,
-        obtainResults
+        childrenSwitch, setChildrenSwitch
     } = useContext(GlobalContext)
 
     const navigate = useNavigate()

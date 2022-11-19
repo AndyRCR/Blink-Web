@@ -2,16 +2,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons"
 import React, { useContext, useEffect, useState } from 'react'
 import ResultItem from '../ResultItem/ResultItem'
-// import { results } from './ExampleResults'
-import './ResultsCarousel.css'
 import Benefits from '../Benefits/Benefits'
 import { GlobalContext } from '../../context/GlobalStateContext'
+import './ResultsCarousel.css'
 
 const ResultsCarousel = () => {
 
-  const { obtainResults, results, setResults } = useContext(GlobalContext)
+  const { obtainResults, results, setResults, filteredResults, position, setPosition, setFilteredResults } = useContext(GlobalContext)
 
-  const [position, setPosition] = useState(0)
   const [resize, setResize] = useState(window.innerWidth < 900)
 
   const pixelToInt = (pixels) => {
@@ -28,13 +26,23 @@ const ResultsCarousel = () => {
 
   const moveRight = () => {
     if (position > 0) {
-      setResults(results.map(el => {
-        return {
-          ...el,
-          pos: el.pos + 1
+      filteredResults === null ? (
+        setResults(results.map(el => {
+          return {
+            ...el,
+            pos: el.pos + 1
+          }
         }
-      }
-      ))
+        ))
+      ) : (
+        setFilteredResults(filteredResults.map(el => {
+          return {
+            ...el,
+            pos: el.pos + 1
+          }
+        }
+        ))
+      )
     }
 
     const style = window.getComputedStyle(document.querySelector('.carousel .result'))
@@ -49,41 +57,54 @@ const ResultsCarousel = () => {
   }
 
   const moveLeft = () => {
-    if (position < results.length - 1) {
-      setResults(results.map(el => {
-        return {
-          ...el,
-          pos: el.pos - 1
+    if (position < (filteredResults || results).length - 1) {
+      filteredResults == null ? (
+        setResults(results.map(el => {
+          return {
+            ...el,
+            pos: el.pos - 1
+          }
         }
-      }
-      ))
+        ))
+      ) : (
+        setFilteredResults(filteredResults.map(el => {
+          return {
+            ...el,
+            pos: el.pos - 1
+          }
+        }
+        ))
+      )
     }
 
     const style = window.getComputedStyle(document.querySelector('.carousel .result'))
     const width = style.getPropertyValue('width')
 
-    setPosition(position > results.length - 2 ? position : position + 1)
+    setPosition(position > (filteredResults || results).length - 2 ? position : position + 1)
     document.querySelectorAll('.carousel .result').forEach(item => {
       item.style.transform = `translateX(-${pixelToInt(width) * position + 16 * position}px)`
     })
   }
 
   useEffect(() => {
-    if(results.length === 0) obtainResults()
+    if (results === null) obtainResults()
 
-    if(results.length > 0){
-      const carousel = document.querySelector('.carousel')
-      const width = document.querySelector('.carousel .result').clientWidth
-      carousel.style.width = `${width * 4 + 16 * 4}px`
-  
-      document.querySelectorAll('.carousel .result').forEach(item => {
-        item.style.transform = `translateX(-${width * position + 16 * position}px)`
-      })
+    if (results !== null) {
 
-      document.querySelectorAll('.carousel .pinFix.visible').forEach(item => {
-        item.style.transform = `translateX(-${width * position + 16 * position}px)`
-      })
-    }else{
+      if (filteredResults.length > 0) {
+        const carousel = document.querySelector('.carousel')
+        const width = document.querySelector('.carousel .result').clientWidth
+        carousel.style.width = `${width * 4 + 16 * 4}px`
+
+        document.querySelectorAll('.carousel .result').forEach(item => {
+          item.style.transform = `translateX(-${width * position + 16 * position}px)`
+        })
+
+        document.querySelectorAll('.carousel .pinFix.visible').forEach(item => {
+          item.style.transform = `translateX(-${width * position + 16 * position}px)`
+        })
+      }
+    } else {
       const carousel = document.querySelector('.carousel')
       carousel.style.width = `${220 * 4 + 16 * 4}px`
     }
@@ -93,7 +114,7 @@ const ResultsCarousel = () => {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [position, resize, results])
+  }, [position, resize])
 
   return (
     <div className='resultsCarousel' style={{ width: resize ? 'fit-content' : '100%' }}>
@@ -101,12 +122,23 @@ const ResultsCarousel = () => {
       <div className='scrollButton' onClick={moveRight}>
         <FontAwesomeIcon className='scrollIcon' icon={faAngleLeft} />
       </div>
-      <div className='carousel'>
-        {results.map((res, i) => {
-          return (
-            <ResultItem res={res} i={i} pos={res.pos} key={`result ${i}`} />
+      <div className={filteredResults !== null && filteredResults.length > 0 ? 'carousel' :  'carousel noresults'}>
+        {results !== null ? (
+          filteredResults !== null && filteredResults.length > 0 ? (
+            (filteredResults || results).map((res, i) => {
+              return (
+                <ResultItem res={res} i={i} pos={res.pos} key={`result ${i}`} />
+              )
+            })
+          ) : (
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+              <img style={{width: '200px'}} src='https://cdn3d.iconscout.com/3d/premium/thumb/no-results-found-5732789-4812665.png' alt='no results blink'/>
+              <h3>No se encontraron resultados</h3>
+            </div>
           )
-        })}
+        ) : (
+          <div className='loaderTitle'>b</div>
+        )}
       </div>
       <div className='scrollButton' onClick={moveLeft}>
         <FontAwesomeIcon className='scrollIcon' icon={faAngleRight} />

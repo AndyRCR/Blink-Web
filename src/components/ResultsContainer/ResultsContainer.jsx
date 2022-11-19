@@ -6,7 +6,7 @@ import './ResultsContainer.css'
 
 const ResultsContainer = () => {
 
-  const {filtersDisplayed, results} = useContext(GlobalContext)
+  const {filtersDisplayed, filteredResults} = useContext(GlobalContext)
 
   const [resize, setResize] = useState(window.innerWidth < 900)
 
@@ -20,19 +20,14 @@ const ResultsContainer = () => {
     }
   }, [resize])
   
-
   return (
     <div className={filtersDisplayed ? 'resultsContainer displayed' : 'resultsContainer'}>
         <Filters/>
         <div className='carouselContainer' style={{overflowX: resize ? 'scroll' : 'hidden'}}>
-          {results !== null ? (
-            <>
-              <h3><span>{results.length}</span> resultados encontrados</h3>
-              <ResultsCarousel/>
-            </>
-          ):(
-            <h1>Cargando...</h1>
-          )}
+          {filteredResults !== null ? (
+            <h3><span>{filteredResults.length}</span> resultados encontrados</h3>
+          ): <h3 style={{height: '29px'}}></h3>}
+          <ResultsCarousel/>
         </div>
     </div>
   )

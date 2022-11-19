@@ -5,7 +5,7 @@
 
 .benefits .benefitsHeader{
     height: 240px;
-    border-bottom: 1px solid var(--gris-blink);
+    /* border-bottom: 1px solid var(--gris-blink); */
     display: flex;
     align-items: flex-end;
 }

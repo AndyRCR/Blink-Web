@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import './Banner.css'
 import BlastText from '../BlastText/BlastText'
 import { Link } from 'react-router-dom'
+import './Banner.css'
 
 const Banner = (props) => {
   return (

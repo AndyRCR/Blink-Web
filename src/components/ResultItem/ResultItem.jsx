@@ -12,7 +12,7 @@ const pixelToInt = (pixels) => {
 }
 
 const numberFormatter = x => {
-    return `$${x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+    return `$${parseFloat(x).toPrecision(String(Math.round(x)).length +2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
 }
 
 const stringFormatter = x => {
@@ -30,7 +30,6 @@ const checkAvailability = x => {
 }
 
 const ResultItem = ({ res, i, pos }) => {
-
     const { itemCheckeds, setItemCheckeds } = useContext(GlobalContext)
 
     const [checked, setChecked] = useState(false)
@@ -123,7 +122,7 @@ const ResultItem = ({ res, i, pos }) => {
                     <div className="benefitItem">
                         {checkAvailability(res.doctorathome)}
                     </div>
-                    <div className="benefitItem">
+                    {/* <div className="benefitItem">
                         {typeof res.guardia === 'boolean'
                             ? <FontAwesomeIcon icon={res.guardia ? faCheck : faXmark} />
                             : res.guardia}
@@ -147,14 +146,14 @@ const ResultItem = ({ res, i, pos }) => {
                         {typeof res.farmacias === 'boolean'
                             ? <FontAwesomeIcon icon={res.farmacias ? faCheck : faXmark} />
                             : res.farmacias}
-                    </div>
+                    </div> */}
                     <div className="benefitItem">
                         {checkAvailability(res.odontology)}
                     </div>
                     <div className="benefitItem">
                         {checkAvailability(res.orthodontics)}
                     </div>
-                    <div className="benefitItem">
+                    {/* <div className="benefitItem">
                         {typeof res.implantes === 'boolean'
                             ? <FontAwesomeIcon icon={res.implantes ? faCheck : faXmark} />
                             : res.implantes}
@@ -193,7 +192,7 @@ const ResultItem = ({ res, i, pos }) => {
                         {typeof res.cobertura === 'boolean'
                             ? <FontAwesomeIcon icon={res.cobertura ? faCheck : faXmark} />
                             : res.cobertura}
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className='pinBackground'>

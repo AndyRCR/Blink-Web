@@ -41,17 +41,17 @@
 @media(max-width: 815px){
     .results{
         padding-top: 78px;
-        min-height: 1200px;
+        min-height: 800px;
     }
 
     .results.displayed{
-        min-height: 1900px;
+        min-height: 1500px;
     }
 
     .resultsContainer{
         position: absolute;
         width: 100%;
-        top: -620px;
+        top: -700px;
         /* transform: translateY(-700px); */
         transition: .5s;
     }
@@ -65,11 +65,15 @@
 
 @media(max-width: 520px){
     .resultsContainer{
-        top: -1055px;
+        top: -1130px;
+    }
+
+    .results {
+        min-height: 720px;
     }
 
     .results.displayed{
-        min-height: 2280px;
+        min-height: 1900px;
     }
 }
 
